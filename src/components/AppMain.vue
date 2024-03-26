@@ -13,7 +13,7 @@ export default {
 
 <template>
     <main>
-        MAIN
+        MAIN CIPOLLE FRITTE PER COSTANZA
     </main>
 </template>
 

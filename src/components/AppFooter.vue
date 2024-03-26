@@ -13,7 +13,7 @@ export default {
 
 <template>
     <footer>
-        FOOTER
+        FOOTER PANINI IMBOTTITI PER LUCA
     </footer>
 </template>
 

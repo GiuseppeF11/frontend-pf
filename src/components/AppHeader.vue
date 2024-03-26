@@ -13,7 +13,7 @@ export default {
 
 <template>
     <header>
-        HEADER
+        HEADER PATATE BOLLITE PER MARIANNA
     </header>
 </template>
 
