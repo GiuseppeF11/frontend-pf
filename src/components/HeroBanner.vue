@@ -35,7 +35,15 @@ export default {
 </script>
 
 <template>
-  <div class="my_jumbotron">
+
+  <div class="jumbotron">
+    <h1 class="title">Benvenuto in fastbites!</h1>
+    <p class="subtitle fs-5">
+        Hai fame? Festeggia ogni boccone di felicità consegnato direttamente a
+        casa tua
+      </p>
+  </div>
+  <!-- <div class="my_jumbotron">
     <div class="carousel">
       <div class="carousel-inner">
         <div
@@ -55,77 +63,101 @@ export default {
         casa tua
       </p>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <style lang="scss" scoped>
 @use '../assets/scss/partials/variables.scss' as *;
 @use '../../src/assets/scss/font.scss' as *;
 
-.my_jumbotron {
-  position: relative;
 
-  .carousel {
-    .carousel-inner {
-      position: relative;
-      width: 100%;
-      height: 600px;
-    }
+.jumbotron {
+  background-image: url("/public/img/jumbotron.png");
+  background-size: cover;
+  height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 
-    .carousel-item {
-      position: absolute;
-      z-index: auto;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      transition: opacity 1s ease-out;
+  h1 { 
+    font-family: "Paytone One", sans-serif;
+    color: white;;
+    font-size: 4rem;
 
-      &.active {
-        opacity: 1;
-      }
-    }
-    .carousel-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
   }
-
-  .carousel-control-prev {
-    left: 10px;
-  }
-
-  .carousel-control-next {
-    right: 10px;
-  }
-
-  .my_slogan {
-    position: absolute;
-    top: 50%;
-    left: 10%;
-    width: 55%;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.45);
+  p {
+    font-family: 'Open Sans', sans-serif;
     color: white;
-    .title {
-      font-size: 4rem;
-      font-family: 'Lora', sans-serif;
-    }
-    .subtitle {
-      font-size: 1.5rem;
-      font-family: 'Open Sans', sans-serif;
-      font-weight: 100;
-    }
-  }
-  .search-container {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-
-    .search .bar {
-      width: 300px;
-      margin-right: 20px;
-    }
+    font-size: 1.5rem;
   }
 }
+
+// .my_jumbotron {
+//   position: relative;
+
+//   .carousel {
+//     .carousel-inner {
+//       position: relative;
+//       width: 100%;
+//       height: 600px;
+//     }
+
+//     .carousel-item {
+//       position: absolute;
+//       z-index: auto;
+//       width: 100%;
+//       height: 100%;
+//       opacity: 0;
+//       transition: opacity 1s ease-out;
+
+//       &.active {
+//         opacity: 1;
+//       }
+//     }
+//     .carousel-item img {
+//       width: 100%;
+//       height: 100%;
+//       object-fit: cover;
+//     }
+//   }
+
+//   .carousel-control-prev {
+//     left: 10px;
+//   }
+
+//   .carousel-control-next {
+//     right: 10px;
+//   }
+
+//   .my_slogan {
+//     position: absolute;
+//     top: 50%;
+//     left: 10%;
+//     width: 55%;
+//     padding: 20px;
+//     background-color: rgba(0, 0, 0, 0.45);
+//     color: white;
+//     .title {
+//       font-size: 4rem;
+//       font-family: 'Lora', sans-serif;
+//     }
+//     .subtitle {
+//       font-size: 1.5rem;
+//       font-family: 'Open Sans', sans-serif;
+//       font-weight: 100;
+//     }
+//   }
+//   .search-container {
+//     margin-top: 30px;
+//     display: flex;
+//     justify-content: center;
+
+//     .search .bar {
+//       width: 300px;
+//       margin-right: 20px;
+//     }
+//   }
+// }
 </style>
