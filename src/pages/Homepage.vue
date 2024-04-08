@@ -1,20 +1,22 @@
 <script>
+import HeroBanner from '../components/HeroBanner.vue';
+import Categories from '../components/Categories.vue';
+
 export default {
+  components: {
+    HeroBanner,
+    Categories,
+  },
   data() {
     return {};
   },
+  methods: {},
 };
 </script>
 
 <template>
-  <main>
-    <h1>Categorie</h1>
-    <ul>
-      <li v-for="category in categories" :key="category.id">
-        {{ category.name }}
-      </li>
-    </ul>
-  </main>
+  <HeroBanner />
+  <Categories />
 </template>
 
 <style lang="scss" scoped></style>

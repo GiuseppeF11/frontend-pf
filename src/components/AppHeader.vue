@@ -1,21 +1,20 @@
 <script>
+import Cart from './Cart.vue';
 export default {
-    data() {
-        return {
-
-        };
-    },
-    methods: {
-
-    }
-}
+  data() {
+    return {};
+  },
+  components: {
+    Cart,
+  },
+  methods: {},
+};
 </script>
 
 <template>
-    <header>
-        HEADER PATATE BOLLITE PER MARIANNA
-    </header>
+  <header>
+    <Cart />
+  </header>
 </template>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

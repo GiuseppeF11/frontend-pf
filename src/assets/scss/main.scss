@@ -1,7 +1,16 @@
-@use "partials/variables.scss" as *;
-@use "partials/mixins.scss" as *;
+@use 'partials/variables.scss' as *;
+@use 'partials/mixins.scss' as *;
 
-h1 {
-    text-align: center;
-    color: lightcoral;
+// Import all of Bootstrap's CSS
+@import 'bootstrap/scss/bootstrap';
+
+body {
+  background: rgb(246, 144, 30);
+  background: linear-gradient(
+    180deg,
+    rgba(246, 144, 30, 1) 0%,
+    rgba(204, 51, 51, 1) 75%
+  );
+  min-height: 100vh;
+  padding-bottom: 50px; /* Adjust this if you have a fixed footer */
 }
