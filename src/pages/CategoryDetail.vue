@@ -32,7 +32,7 @@ export default {
 };
 </script>
 
-<!-- <template>
+<template>
   <main>
     <h1 class="title">{{ this.category.name }}</h1>
     <h2 class="subtitle">Ristoranti</h2>
@@ -64,9 +64,9 @@ export default {
       </div>
     </div>
   </main>
-</template> -->
+</template>
 
-<template>
+<!-- <template>
   <main>
     <div class="container pb-5">
       <h1 class="title pb-4">Ristoranti</h1>
@@ -92,7 +92,7 @@ export default {
       </div>
     </div>
   </main>
-</template>
+</template> -->
 
 
 <style lang="scss" scoped>
