@@ -22,7 +22,7 @@ export default {
         :key="category.id"
         class="category-card col-md-3"
       >
-        <RouterLink :to="`/category/${category.id}`" class="card-link">
+        <RouterLink :to="`/category/${category.id}`">
           <div class="card-content">
             <img
               :src="category.img"

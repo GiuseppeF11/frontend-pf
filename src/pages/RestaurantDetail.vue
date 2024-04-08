@@ -24,10 +24,17 @@ export default {
   },
   methods: {
     addToCart(count, food) {
-      this.$store.commit('addToCart', {
-        count,
-        food,
-      });
+      if (
+        !this.$store.getters.getRestaurant ||
+        this.$store.getters.getRestaurant === food.restaurant_id
+      ) {
+        this.$store.commit('addToCart', {
+          count,
+          food,
+        });
+      } else {
+        alert('Non puoi acquistare da ristoranti diversi.');
+      }
     },
   },
   computed: {
