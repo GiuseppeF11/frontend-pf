@@ -23,7 +23,7 @@ export default {
         :key="category.id"
         class="category-card col-md-3"
       >
-        <a :href="`/category/${category.id}`" class="card-link">
+        <RouterLink :to="`/category/${category.id}`" class="card-link">
           <div class="card-content">
             <img
               :src="category.img"
@@ -34,7 +34,7 @@ export default {
               <h5 class="card-title category-name">{{ category.name }}</h5>
             </div>
           </div>
-        </a>
+        </RouterLink>
       </div>
     </div>
   </main>

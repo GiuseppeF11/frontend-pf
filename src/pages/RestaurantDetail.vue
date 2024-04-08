@@ -5,7 +5,7 @@ export default {
   data() {
     return {
       restaurant: {},
-      searchTerm: ''
+      searchTerm: '',
     };
   },
   components: {
@@ -22,16 +22,24 @@ export default {
         });
     }
   },
+  methods: {
+    addToCart(count, food) {
+      this.$store.commit('addToCart', {
+        count,
+        food,
+      });
+    },
+  },
   computed: {
     filteredFoods() {
       if (!this.searchTerm.trim()) {
         return this.restaurant.foods;
       }
-      return this.restaurant.foods.filter(food =>
+      return this.restaurant.foods.filter((food) =>
         food.name.toLowerCase().includes(this.searchTerm.toLowerCase())
       );
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -42,7 +50,12 @@ export default {
     <div class="row justify-content-center">
       <div class="col-md-4">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" v-model="searchTerm" placeholder="Inserisci il nome del cibo...">
+          <input
+            type="text"
+            class="form-control"
+            v-model="searchTerm"
+            placeholder="Inserisci il nome del cibo..."
+          />
         </div>
       </div>
     </div>
@@ -53,6 +66,7 @@ export default {
         :image="food.img"
         :name="food.name"
         :price="food.price"
+        @addToCart="addToCart($event, food)"
       />
     </div>
   </main>

@@ -13,7 +13,7 @@ export default {
       if (!this.searchTerm.trim()) {
         return this.category.restaurants;
       }
-      return this.category.restaurants.filter(restaurant =>
+      return this.category.restaurants.filter((restaurant) =>
         restaurant.name.toLowerCase().includes(this.searchTerm.toLowerCase())
       );
     },
@@ -39,7 +39,12 @@ export default {
     <div class="row justify-content-center">
       <div class="col-md-4">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" v-model="searchTerm" placeholder="Inserisci il nome del ristorante...">
+          <input
+            type="text"
+            class="form-control"
+            v-model="searchTerm"
+            placeholder="Inserisci il nome del ristorante..."
+          />
         </div>
       </div>
     </div>
@@ -49,8 +54,8 @@ export default {
         :key="restaurant.id"
         class="restaurant-card col-md-8"
       >
-        <a :href="`/restaurant/${restaurant.id}`">
-          <div class="card-content">
+        <RouterLink :to="`/restaurant/${restaurant.id}`">
+          <div>
             <img
               :src="restaurant.img"
               class="restaurant-image"
@@ -60,12 +65,11 @@ export default {
               <h5 class="card-title restaurant-name">{{ restaurant.name }}</h5>
             </div>
           </div>
-        </a>
+        </RouterLink>
       </div>
     </div>
   </main>
 </template>
-
 
 <style lang="scss" scoped>
 .title {
