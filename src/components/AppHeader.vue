@@ -15,7 +15,7 @@ export default {
   <header>
     <img src="/public/img/logoscritta.png" height="120px;" style="padding-left: 40px;">
     <div style="float: right; padding-top: 40px; padding-right: 50px;">
-      <a href="/">
+      <a href="http://127.0.0.1:8000/">
         <button style="border-radius: 25px; margin-right: 20px; background-color: transparent; color: white; padding: 5px;"><i class="bi bi-person"></i> Login</button>
       </a>
         <Cart />
@@ -23,4 +23,7 @@ export default {
   </header>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+
+</style>
