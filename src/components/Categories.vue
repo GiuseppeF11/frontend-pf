@@ -43,6 +43,7 @@ export default {
   text-align: center;
   margin: 30px;
 }
+
 .category-card {
   position: relative;
   // background-color: rgba(255, 255, 255, 0.7);
@@ -55,8 +56,6 @@ export default {
     text-decoration: none;
   }
 }
-
-
 
 .category-image {
   position: relative;

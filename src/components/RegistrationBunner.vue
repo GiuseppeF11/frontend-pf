@@ -15,7 +15,7 @@
             </div>
 
             <div class="image">
-                <img src="/public/img/deliveryman.png" alt="">
+                <img src="/img/deliveryman.png?url." alt="">
             </div>
         </div>
     </main>
