@@ -72,7 +72,7 @@ export default {
 
 
 .jumbotron {
-  background-image: url("/public/img/jumbotron.png");
+  background-image: url("/img/jumbotron.png");
   background-size: cover;
   height: 100vh; 
   display: flex;
