@@ -32,7 +32,7 @@ export default {
 };
 </script>
 
-<template>
+<!-- <template>
   <main>
     <h1 class="title">{{ this.category.name }}</h1>
     <h2 class="subtitle">Ristoranti</h2>
@@ -57,10 +57,38 @@ export default {
               alt="Immagine ristorante"
             />
             <div class="card-body">
-              <h5 class="card-title restaurant-name">{{ restaurant.name }}</h5>
+              <h5 class="card-title restaurant-name category-pill">{{ restaurant.name }}</h5>
             </div>
           </div>
         </a>
+      </div>
+    </div>
+  </main>
+</template> -->
+
+<template>
+  <main>
+    <div class="container pb-5">
+      <h1 class="title pb-4">Ristoranti</h1>
+      <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 justify-content-center">
+        <div
+        v-for="restaurant in this.category.restaurants"
+        :key="restaurant.id"
+        class="restaurant-card col-md-8"
+      >
+        <a :href="`/restaurant/${restaurant.id}`">
+          <div class="card-content">
+            <img
+              :src="restaurant.img"
+              class="restaurant-image"
+              alt="Immagine ristorante"
+            />
+            <div class="card-body">
+              <h5 class="card-title restaurant-name category-pill">{{ restaurant.name }}</h5>
+            </div>
+          </div>
+        </a>
+      </div>
       </div>
     </div>
   </main>
@@ -68,37 +96,38 @@ export default {
 
 
 <style lang="scss" scoped>
-.title {
-  font-family: 'Lora', 'sans-serif';
-  font-size: 4rem;
-  color: white;
-  text-align: center;
-  margin: 30px;
-}
-.subtitle {
-  font-family: 'Lora', 'sans-serif';
-  font-size: 2rem;
-  color: white;
-  text-align: center;
-  margin: 30px;
-}
+
+// .title {
+//   font-family: 'Lora', 'sans-serif';
+//   font-size: 4rem;
+//   color: white;
+//   text-align: center;
+//   margin: 30px;
+// }
+// .subtitle {
+//   font-family: 'Lora', 'sans-serif';
+//   font-size: 2rem;
+//   color: white;
+//   text-align: center;
+//   margin: 30px;
+// }
+
 .restaurant-card {
-  background-color: rgba(255, 255, 255, 0.7);
-  border-radius: 10px;
-  margin: 10px;
-  padding: 20px;
-  text-align: center;
-  width: 275px;
-  a {
-    text-decoration: none;
-  }
+position: relative;
+border-radius: 10px;
+margin: 10px;
+padding: 20px;
+text-align: center;
+width: 275px;
+a {
+  text-decoration: none;
+}
 }
 
 .restaurant-image {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-
   margin: 0 auto 10px;
 }
 
@@ -118,4 +147,70 @@ export default {
   font-size: 18px;
   font-family: 'Open Sans', 'sans-serif';
 }
+
+.title {
+font-family: "Paytone One", sans-serif;
+// font-family: 'Lora', 'sans-serif';
+font-size: 3rem;
+// font-size: 4rem;
+color: white;
+text-align: center;
+margin: 30px;
+}
+
+.category-card {
+position: relative;
+// background-color: rgba(255, 255, 255, 0.7);
+border-radius: 10px;
+margin: 10px;
+padding: 20px;
+text-align: center;
+width: 275px;
+a {
+  text-decoration: none;
+}
+}
+
+.category-image {
+position: relative;
+width: 150px;
+height: 150px;
+border-radius: 50%;
+margin: 0 auto 10px;
+}
+
+.category-image img {
+width: 100%;
+height: 100%;
+object-fit: fill;
+}
+
+.card-body {
+text-align: center;
+margin-top: 10px;
+}
+
+// .category-name {
+//   color: #333;
+//   font-weight: bold;
+//   font-size: 18px;
+//   font-family: 'Open Sans', 'sans-serif';
+// }
+
+.category-pill {
+position: absolute;
+bottom: 20px; 
+left: 50%;
+transform: translateX(-50%);
+font-family: 'Open Sans', 'sans-serif';
+background-color: rgba(246, 144, 30, 1); 
+color: rgb(255, 255, 255);
+padding: 10px 15px;
+text-align: center;
+text-decoration: none;
+border-radius: 25px;
+font-size: 16px;
+width: 150px
+}
+
 </style>
