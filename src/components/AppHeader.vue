@@ -36,8 +36,8 @@ export default {
           <i class="bi bi-person"></i> Login
         </button>
       </a>
+      <Cart />
     </div>
-    <Cart />
   </header>
 </template>
 
