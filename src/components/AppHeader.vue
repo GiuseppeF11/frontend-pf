@@ -23,7 +23,7 @@ export default {
     </RouterLink>
 
     <div style="float: right; padding-top: 40px; padding-right: 50px">
-      <RouterLink to="/">
+      <a href="http://127.0.0.1:8000/">
         <button
           style="
             border-radius: 25px;
@@ -35,9 +35,9 @@ export default {
         >
           <i class="bi bi-person"></i> Login
         </button>
-      </RouterLink>
-      <Cart />
+      </a>
     </div>
+    <Cart />
   </header>
 </template>
 

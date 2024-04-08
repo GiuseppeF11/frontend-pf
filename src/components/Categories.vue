@@ -13,7 +13,6 @@ export default {
   },
 };
 </script>
-
 <template>
   <main>
     <h1 class="title">Categorie</h1>
@@ -48,6 +47,7 @@ export default {
   text-align: center;
   margin: 30px;
 }
+
 .category-card {
   background-color: rgba(255, 255, 255, 0.7);
   border-radius: 10px;
