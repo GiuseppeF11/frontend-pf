@@ -5,6 +5,7 @@ export default {
   data() {
     return {
       restaurant: {},
+      searchTerm: ''
     };
   },
   components: {
@@ -21,7 +22,16 @@ export default {
         });
     }
   },
-  methods: {},
+  computed: {
+    filteredFoods() {
+      if (!this.searchTerm.trim()) {
+        return this.restaurant.foods;
+      }
+      return this.restaurant.foods.filter(food =>
+        food.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+    }
+  }
 };
 </script>
 
@@ -30,8 +40,15 @@ export default {
     <h1 class="title">{{ this.restaurant.name }}</h1>
     <h2 class="subtitle">Menù</h2>
     <div class="row justify-content-center">
+      <div class="col-md-4">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" v-model="searchTerm" placeholder="Inserisci il nome del cibo...">
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
       <Food
-        v-for="food in this.restaurant.foods"
+        v-for="food in filteredFoods"
         :key="food.id"
         :image="food.img"
         :name="food.name"

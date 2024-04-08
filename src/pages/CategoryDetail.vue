@@ -1,10 +1,22 @@
 <script>
 import axios from 'axios';
+
 export default {
   data() {
     return {
       category: {},
+      searchTerm: '', // Aggiungi il termine di ricerca
     };
+  },
+  computed: {
+    filteredRestaurants() {
+      if (!this.searchTerm.trim()) {
+        return this.category.restaurants;
+      }
+      return this.category.restaurants.filter(restaurant =>
+        restaurant.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+    },
   },
   mounted() {
     if (this.$route.params.categoryId) {
@@ -25,8 +37,15 @@ export default {
     <h1 class="title">{{ this.category.name }}</h1>
     <h2 class="subtitle">Ristoranti</h2>
     <div class="row justify-content-center">
+      <div class="col-md-4">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" v-model="searchTerm" placeholder="Inserisci il nome del ristorante...">
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
       <div
-        v-for="restaurant in this.category.restaurants"
+        v-for="restaurant in filteredRestaurants"
         :key="restaurant.id"
         class="restaurant-card col-md-8"
       >
@@ -46,6 +65,7 @@ export default {
     </div>
   </main>
 </template>
+
 
 <style lang="scss" scoped>
 .title {
