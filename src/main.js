@@ -2,6 +2,7 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import { router } from './router';
 import store from './store';
+import Vuex from 'vuex';
 import VuexPersist from 'vuex-persist';
 
 import * as bootstrap from 'bootstrap';
