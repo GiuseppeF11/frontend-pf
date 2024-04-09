@@ -37,7 +37,7 @@
 <template>
   <div class="my-jumbotron mb-5">
     <h1 class="title">Benvenuto in fastbites!</h1>
-    <p class="subtitle fs-5">
+    <p class="subtitle fs-5 text-center">
       Hai fame? Festeggia ogni boccone di felicità consegnato direttamente a
       casa tua
     </p>
