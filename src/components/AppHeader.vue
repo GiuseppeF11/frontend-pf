@@ -17,16 +17,16 @@ export default {
     <nav class="navbar">
       <div class="container d-flex justify-content-between align-items-center">
         <div class="logo">
-          <router-link class="navbar-brand" to="/"> 
-            <img src="/public/img/logoscritta.png" alt="logo">
+          <router-link class="navbar-brand" to="/">
+            <img src="/public/img/logoscritta.png" alt="logo" />
           </router-link>
         </div>
-        
+
         <div class="d-flex">
-          <a class="button-style-3" href="/">
+          <a class="button-style-3" :href="`http://127.0.0.1:8000/login`">
             Login
           </a>
-          <Cart/>
+          <Cart />
         </div>
       </div>
     </nav>
@@ -52,13 +52,15 @@ export default {
   cursor: pointer;
   border-radius: 24px;
   background-color: white;
-  transition: background-color 0.3s ease, border-color 0.3s ease; 
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .button-style-3:hover {
   color: white;
   background-color: transparent;
-  border: 1px solid white; 
+  border: 1px solid white;
 }
 
 .button-style-3 a {

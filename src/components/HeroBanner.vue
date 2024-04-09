@@ -32,16 +32,15 @@
 //     clearInterval(this.intervalId);
 //   },
 // };
-
 </script>
 
 <template>
   <div class="my-jumbotron mb-5">
     <h1 class="title">Benvenuto in fastbites!</h1>
     <p class="subtitle fs-5">
-        Hai fame? Festeggia ogni boccone di felicità consegnato direttamente a
-        casa tua
-      </p>
+      Hai fame? Festeggia ogni boccone di felicità consegnato direttamente a
+      casa tua
+    </p>
   </div>
   <!-- <div class="my_jumbotron">
     <div class="carousel">
@@ -71,19 +70,19 @@
 @use '../../src/assets/scss/font.scss' as *;
 .my-jumbotron {
   position: relative;
-  background-image: url("/img/jumbotron.png");
+  background-image: url('/img/jumbotron.png');
   background-color: none;
-  background-size: cover; 
-  background-repeat: no-repeat; 
+  background-size: cover;
+  background-repeat: no-repeat;
   background-position: center;
   height: 600px;
 
   .title {
-    font-family: "Paytone One", sans-serif;
+    font-family: 'Paytone One', sans-serif;
     color: white;
     font-size: 4rem;
     position: absolute;
-    top: 40%; 
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
@@ -93,7 +92,7 @@
     color: white;
     font-size: 1.5rem;
     position: absolute;
-    top: 48%; 
+    top: 48%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
@@ -101,12 +100,12 @@
   @media (max-width: 768px) {
     .title {
       font-size: 3rem;
-      top: 20%; 
+      top: 20%;
     }
 
     .subtitle {
       font-size: 1.2rem;
-      top: 15%; 
+      top: 15%;
     }
   }
 

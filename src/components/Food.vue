@@ -40,8 +40,10 @@ export default {
           <input type="number" min="1" v-model="quantity" class="pill-input" />
           <button @click="increment(food)">+</button>
         </div>
-        <a  @click="addToCart(food)" href="" class="button-style-4">Aggiungi</a>
-          <!-- <button @click="addToCart(food)">Aggiungi</button> -->
+        <!-- <a  @click="addToCart(food)" href="" class="button-style-4">Aggiungi</a>-->
+        <button class="button-style-4-cart" @click="addToCart(food)">
+          Aggiungi
+        </button>
       </div>
     </div>
   </div>
@@ -93,7 +95,7 @@ export default {
 .pill-input {
   border: none;
   padding: 5px 10px;
-  width: 50px; 
+  width: 50px;
   text-align: center;
 }
 
@@ -104,7 +106,7 @@ button {
   color: white;
   border: none;
   padding: 5px 10px;
-  width: 35px; 
+  width: 35px;
 
   cursor: pointer;
   transition: background-color 0.3s;
@@ -128,22 +130,23 @@ body {
   align-items: center;
 }
 
-.button-style-4 {
-    font-size: 18px;
-    display: inline-block;
-    text-decoration: none;
-    color: white;
-    padding: 8px 25px;
-    margin: 4px 10px;
-    cursor: pointer;
-    border-radius: 24px;
-    transition: background-color 0.3s ease;
-    border: none;
-    background-color: rgba(246, 144, 30, 1);
-  
-    &:hover {
-      background-color: #ffffff;
-      color: black;
-    }
+.button-style-4-cart {
+  width: 200px;
+  font-size: 18px;
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  padding: 8px 25px;
+  margin: 4px 10px;
+  cursor: pointer;
+  border-radius: 24px;
+  transition: background-color 0.3s ease;
+  border: none;
+  background-color: rgba(246, 144, 30, 1);
+
+  &:hover {
+    background-color: #ffffff;
+    color: black;
   }
+}
 </style>
