@@ -99,7 +99,13 @@ export default {
         </div>
       </div>
       
-      <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 justify-content-center mt-5">
+      <!-- Controlla se l'array dei ristoranti filtrati è vuoto -->
+      <div v-if="filteredRestaurants.length === 0" class="text-center mt-5">
+        <h4>Nessun ristorante presente.</h4>
+      </div>
+
+      <!-- Mostra i ristoranti solo se ce ne sono -->
+      <div v-else class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 justify-content-center mt-5">
         <div v-for="restaurant in filteredRestaurants" :key="restaurant.id" class="category-card col-md-3">
           <a :href="`/restaurant/${restaurant.id}`" class="card-link">
             <div class="card-content">
