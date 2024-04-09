@@ -23,9 +23,18 @@ export default {
         </div>
         
         <div class="d-flex">
+
+		<router-link  to="/login"> 
           <a class="button-style-3" href="/">
-            Login
+            Sei gia un nostro partner?
           </a>
+		</router-link>
+
+		<router-link  to="/register"> 
+          <a class="button-style-3" href="/">
+            Diventa un nostro partner!
+          </a>
+		</router-link>
           <Cart/>
         </div>
       </div>
