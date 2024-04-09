@@ -8,7 +8,11 @@ export default {
       return this.$store.getters.getCart;
     },
   },
-  methods: {},
+  methods: {
+    removeFromCart(foodId) {
+      this.$store.commit('removeFromCart', foodId);
+    },
+  },
 };
 </script>
 

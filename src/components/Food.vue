@@ -1,27 +1,51 @@
 <script>
 export default {
-  data() {
-    return {
-      quantity: 1,
-    };
-  },
+  data() {},
   props: {
-    link: String,
-    image: String,
-    name: String,
-    price: Number,
+    food: Object,
   },
   methods: {
     increment() {
-      this.quantity++;
+      this.$store.commit('setQuantityCart', {
+        count: this.currentQuantity + 1,
+        food: this.food,
+      });
     },
     decrement() {
-      if (this.quantity > 1) {
-        this.quantity--;
+      if (this.currentQuantity > 1) {
+        this.$store.commit('setQuantityCart', {
+          count: this.currentQuantity - 1,
+          food: this.food,
+        });
+      } else {
+        this.$store.commit('removeFromCart', this.food.id);
       }
     },
-    addToCart() {
-      this.$emit('addToCart', this.quantity);
+    addToCart(food) {
+      if (this.canAddToCart) {
+        this.$store.commit('setQuantityCart', {
+          count: !this.currentQuantity
+            ? this.currentQuantity + 1
+            : this.currentQuantity,
+          food: this.food,
+        });
+      }
+    },
+  },
+  computed: {
+    canAddToCart() {
+      return (
+        !this.$store.getters.getRestaurant ||
+        this.$store.getters.getRestaurant === this.food.restaurant_id ||
+        !this.$store.getters.getCart.length
+      );
+    },
+    currentQuantity() {
+      return (
+        this.$store.getters.getCart.find(
+          (cartItem) => cartItem.food.id === this.food.id
+        )?.count ?? 0
+      );
     },
   },
 };
@@ -30,18 +54,27 @@ export default {
 <template>
   <div class="food-card col-md-8 mt-4">
     <div class="card-content">
-      <img :src="image" class="food-image" alt="Immagine cibo" />
+      <img :src="food.img" class="food-image" alt="Immagine cibo" />
       <div class="card-body">
-        <h4 class="card-title food-name">{{ name }}</h4>
+        <h4 class="card-title food-name">{{ food.name }}</h4>
 
-        <h6>{{ price }} €</h6>
-        <div class="input-wrapper my-4">
-          <button @click="decrement(food)">-</button>
-          <input type="number" min="1" v-model="quantity" class="pill-input" />
-          <button @click="increment(food)">+</button>
+        <h6>{{ food.price }} €</h6>
+
+        <div class="input-wrapper my-4" v-if="currentQuantity">
+          <button @click="decrement()">-</button>
+          <input
+            type="number"
+            min="1"
+            :value="currentQuantity"
+            class="pill-input"
+          />
+          <button @click="increment()">+</button>
         </div>
-        <!-- <a  @click="addToCart(food)" href="" class="button-style-4">Aggiungi</a>-->
-        <button class="button-style-4-cart" @click="addToCart(food)">
+        <button
+          class="button-style-4-cart"
+          @click="addToCart"
+          :disabled="!this.canAddToCart"
+        >
           Aggiungi
         </button>
       </div>
@@ -147,6 +180,12 @@ body {
   &:hover {
     background-color: #ffffff;
     color: black;
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    background: #ccc;
+    color: #333;
   }
 }
 </style>

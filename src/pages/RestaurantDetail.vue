@@ -22,21 +22,6 @@ export default {
         });
     }
   },
-  methods: {
-    addToCart(count, food) {
-      if (
-        !this.$store.getters.getRestaurant ||
-        this.$store.getters.getRestaurant === food.restaurant_id
-      ) {
-        this.$store.commit('addToCart', {
-          count,
-          food,
-        });
-      } else {
-        alert('Non puoi acquistare da ristoranti diversi.');
-      }
-    },
-  },
   computed: {
     filteredFoods() {
       if (!this.searchTerm.trim()) {
@@ -57,26 +42,24 @@ export default {
     <div class="row justify-content-center">
       <div class="col-md-4">
         <div class="input-group mb-4">
-          <input type="text" class="form-control rounded-pill custom-input" v-model="searchTerm" placeholder="Inserisci il nome del cibo...">
+          <input
+            type="text"
+            class="form-control rounded-pill custom-input"
+            v-model="searchTerm"
+            placeholder="Inserisci il nome del cibo..."
+          />
         </div>
       </div>
     </div>
     <div class="row justify-content-center">
-      <Food
-        v-for="food in filteredFoods"
-        :key="food.id"
-        :image="food.img"
-        :name="food.name"
-        :price="food.price"
-        @addToCart="addToCart($event, food)"
-      />
+      <Food v-for="food in filteredFoods" :key="food.id" :food="food" />
     </div>
   </main>
 </template>
 
 <style lang="scss" scoped>
 .title {
-  font-family: "Paytone One", sans-serif;
+  font-family: 'Paytone One', sans-serif;
   font-size: 3rem;
   color: white;
   text-align: center;
@@ -89,13 +72,13 @@ export default {
 }
 
 .form-control.rounded-pill.custom-input {
-  border-radius: 25px; 
-  outline: none !important; 
-  box-shadow: none !important; 
+  border-radius: 25px;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .input-group.my-4 {
-  max-width: 300px; 
-  margin: 0 auto; 
+  max-width: 300px;
+  margin: 0 auto;
 }
 </style>
