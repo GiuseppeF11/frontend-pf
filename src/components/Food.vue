@@ -21,18 +21,7 @@ export default {
       }
     },
     addToCart() {
-      const existingItem = this.cart.find((item) => item.id === food.id);
-      if (existingItem) {
-        existingItem.quantity += this.quantity;
-      } else {
-        this.cart.push({
-          id: food.id,
-          link: `/restaurant/${restaurant.id}`,
-          name: this.name,
-          quantity: this.quantity,
-        });
-      }
-      this.quantity = 1;
+      this.$emit('addToCart', this.quantity);
     },
   },
 };
@@ -43,9 +32,8 @@ export default {
     <div class="card-content">
       <img :src="image" class="food-image" alt="Immagine cibo" />
       <div class="card-body">
-        <a :href="link">
-          <h4 class="card-title food-name">{{ name }}</h4>
-        </a>
+        <h4 class="card-title food-name">{{ name }}</h4>
+
         <h6>{{ price }} €</h6>
         <div class="input-wrapper my-4">
           <button @click="decrement(food)">-</button>

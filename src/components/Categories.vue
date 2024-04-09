@@ -73,21 +73,20 @@ export default {
 }
 
 .category-image {
-  position: relative;
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
+
   margin: 0 auto 10px;
 }
 
 .category-image img {
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: cover;
 }
 
 .card-body {
-  text-align: center;
   margin-top: 10px;
 }
 
@@ -97,14 +96,6 @@ export default {
   left: 50%;
   transform: translateX(-50%);
   font-family: 'Open Sans', 'sans-serif';
-  background-color: rgba(246, 144, 30, 1); 
-  color: rgb(255, 255, 255);
-  padding: 10px 15px;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 25px;
-  font-size: 16px;
-  width: 150px
 }
 
 .form-control.rounded-pill.custom-input {

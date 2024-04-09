@@ -5,7 +5,7 @@ export default {
   data() {
     return {
       restaurant: {},
-      searchTerm: ''
+      searchTerm: '',
     };
   },
   components: {
@@ -22,16 +22,31 @@ export default {
         });
     }
   },
+  methods: {
+    addToCart(count, food) {
+      if (
+        !this.$store.getters.getRestaurant ||
+        this.$store.getters.getRestaurant === food.restaurant_id
+      ) {
+        this.$store.commit('addToCart', {
+          count,
+          food,
+        });
+      } else {
+        alert('Non puoi acquistare da ristoranti diversi.');
+      }
+    },
+  },
   computed: {
     filteredFoods() {
       if (!this.searchTerm.trim()) {
         return this.restaurant.foods;
       }
-      return this.restaurant.foods.filter(food =>
+      return this.restaurant.foods.filter((food) =>
         food.name.toLowerCase().includes(this.searchTerm.toLowerCase())
       );
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -53,6 +68,7 @@ export default {
         :image="food.img"
         :name="food.name"
         :price="food.price"
+        @addToCart="addToCart($event, food)"
       />
     </div>
   </main>

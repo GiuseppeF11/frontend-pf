@@ -13,7 +13,7 @@ export default {
       if (!this.searchTerm.trim()) {
         return this.category.restaurants;
       }
-      return this.category.restaurants.filter(restaurant =>
+      return this.category.restaurants.filter((restaurant) =>
         restaurant.name.toLowerCase().includes(this.searchTerm.toLowerCase())
       );
     },
@@ -53,8 +53,8 @@ export default {
         :key="restaurant.id"
         class="restaurant-card col-md-8"
       >
-        <a :href="`/restaurant/${restaurant.id}`">
-          <div class="card-content">
+        <RouterLink :to="`/restaurant/${restaurant.id}`">
+          <div>
             <img
               :src="restaurant.img"
               class="restaurant-image"
@@ -64,11 +64,40 @@ export default {
               <h5 class="card-title restaurant-pill">{{ restaurant.name }}</h5>
             </div>
           </div>
+        </RouterLink>
+      </div>
+    </div>
+  </main>
+</template> -->
+
+<template>
+  <main>
+    <div class="container pb-5">
+      <h1 class="title pb-4">Ristoranti</h1>
+      <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 justify-content-center">
+        <div
+        v-for="restaurant in this.category.restaurants"
+        :key="restaurant.id"
+        class="restaurant-card col-md-8"
+      >
+        <a :href="`/restaurant/${restaurant.id}`">
+          <div class="card-content">
+            <img
+              :src="restaurant.img"
+              class="restaurant-image"
+              alt="Immagine ristorante"
+            />
+            <div class="card-body">
+              <h5 class="card-title restaurant-name category-pill">{{ restaurant.name }}</h5>
+            </div>
+          </div>
         </a>
+      </div>
       </div>
     </div>
   </main>
 </template>
+
 
 <style lang="scss" scoped>
 .title {

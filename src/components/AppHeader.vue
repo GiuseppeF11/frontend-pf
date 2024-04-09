@@ -1,5 +1,6 @@
 <script>
 import Cart from './Cart.vue';
+
 export default {
   data() {
     return {};
