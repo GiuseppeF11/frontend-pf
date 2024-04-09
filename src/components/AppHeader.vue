@@ -23,11 +23,17 @@ export default {
         </div>
 
         <div class="d-flex">
-          <a class="button-style-3" :href="`http://127.0.0.1:8000/login`">
+          <a
+            class="button-style-3 link-text"
+            :href="`http://127.0.0.1:8000/login`"
+          >
             Sei gia un nostro partner?
           </a>
 
-          <a class="button-style-3" :href="`http://127.0.0.1:8000/register`">
+          <a
+            class="button-style-3 link-text"
+            :href="`http://127.0.0.1:8000/register`"
+          >
             Diventa un nostro partner!
           </a>
 
@@ -46,7 +52,9 @@ export default {
     width: 100%;
   }
 }
-
+.link-text {
+  font-family: 'Open Sans', 'sans-serif';
+}
 .button-style-3 {
   display: inline-block;
   text-decoration: none;

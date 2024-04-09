@@ -5,7 +5,7 @@
         <h2 class="title pb-2 text-start">
           Diventa un ristoratore su Fastbites
         </h2>
-        <p>
+        <p class="subtitle">
           Con Fastbites, puoi ampliare la tua clientela inserendo il tuo menu
           online. Registrati facilmente e raggiungi una vasta audience di amanti
           del buon cibo. Gestisci il tuo menu, aggiorna le proposte e ricevi
@@ -15,7 +15,7 @@
           community appassionata di buon cibo!
         </p>
 
-        <a class="button-style-4" :href="`http://127.0.0.1:8000/`">
+        <a class="button-style-4 text-button" :href="`http://127.0.0.1:8000/`">
           Registrati
         </a>
       </div>
@@ -59,6 +59,9 @@
   color: white;
   margin-bottom: 20px;
 }
+.subtitle {
+  font-family: 'Open Sans', 'sans-serif';
+}
 
 .button-style-4 {
   font-size: 18px;
@@ -77,5 +80,8 @@
     background-color: #ffffff;
     color: black;
   }
+}
+.text-butto {
+  font-family: 'Open Sans', 'sans-serif';
 }
 </style>

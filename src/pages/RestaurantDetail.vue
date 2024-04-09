@@ -44,7 +44,7 @@ export default {
         <div class="input-group mb-4">
           <input
             type="text"
-            class="form-control rounded-pill custom-input"
+            class="form-control rounded-pill custom-input text-input"
             v-model="searchTerm"
             placeholder="Inserisci il nome del cibo..."
           />
@@ -63,6 +63,7 @@ export default {
   font-size: 3rem;
   color: white;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .subtitle {
@@ -80,5 +81,8 @@ export default {
 .input-group.my-4 {
   max-width: 300px;
   margin: 0 auto;
+}
+.text-input {
+  font-family: 'Open Sans', sans-serif;
 }
 </style>

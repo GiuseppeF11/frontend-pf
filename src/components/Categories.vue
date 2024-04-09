@@ -11,22 +11,24 @@ export default {
     };
   },
   mounted() {
-    axios.get('http://127.0.0.1:8000/api/categories')
+    axios
+      .get('http://127.0.0.1:8000/api/categories')
       .then(({ data }) => {
         console.log('Dati delle categorie:', data.restaurants);
         this.categories = data.payload.data;
       })
-      .catch(error => {
-        console.error('Errore nel recuperare l\'elenco delle categorie:', error);
+      .catch((error) => {
+        console.error("Errore nel recuperare l'elenco delle categorie:", error);
       });
 
-    axios.get('http://127.0.0.1:8000/api/restaurants')
+    axios
+      .get('http://127.0.0.1:8000/api/restaurants')
       .then(({ data }) => {
         console.log('Dati dei ristoranti:', data);
         this.restaurants = data.payload;
       })
-      .catch(error => {
-        console.error('Errore nel recuperare l\'elenco dei ristoranti:', error);
+      .catch((error) => {
+        console.error("Errore nel recuperare l'elenco dei ristoranti:", error);
       });
   },
   methods: {
@@ -48,9 +50,9 @@ export default {
 
       // Filtra solo i ristoranti che contengono TUTTE le categorie selezionate
       if (this.activeCategories.length > 0) {
-        filteredByCategory = this.restaurants.filter(restaurant =>
-          this.activeCategories.every(categoryId =>
-            restaurant.categories.some(category => category.id === categoryId)
+        filteredByCategory = this.restaurants.filter((restaurant) =>
+          this.activeCategories.every((categoryId) =>
+            restaurant.categories.some((category) => category.id === categoryId)
           )
         );
       }
@@ -58,7 +60,7 @@ export default {
       // Filtraggio per nome digitato
       let filteredByName = filteredByCategory;
       if (this.searchTerm.trim()) {
-        filteredByName = filteredByCategory.filter(restaurant =>
+        filteredByName = filteredByCategory.filter((restaurant) =>
           restaurant.name.toLowerCase().includes(this.searchTerm.toLowerCase())
         );
       }
@@ -69,49 +71,76 @@ export default {
 };
 </script>
 
-
 <template>
   <main>
     <div class="container py-5">
       <h1 class="title pb-4">Categorie</h1>
-            
-      <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 justify-content-center mt-5">
-        <div v-for="category in categories" :key="category.id" class="category-card col-md-3">
+
+      <div
+        class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 justify-content-center mt-5"
+      >
+        <div
+          v-for="category in categories"
+          :key="category.id"
+          class="category-card col-md-3"
+        >
           <div @click="toggleCategory(category.id)">
             <div class="card-content">
-                <h5 class="card-title category-name" :class="[ isCategoryActive(category.id) ? 'category-pill-active' : 'category-pill' ]">{{ category.name }}</h5>
+              <h5
+                class="card-title category-name"
+                :class="[
+                  isCategoryActive(category.id)
+                    ? 'category-pill-active'
+                    : 'category-pill',
+                ]"
+              >
+                {{ category.name }}
+              </h5>
             </div>
           </div>
         </div>
       </div>
-      
+
       <h1 class="title pb-4">Ristoranti</h1>
       <div class="row justify-content-center">
         <div class="col-md-6">
           <div class="input-group my-4">
-            <input 
-              type="text" 
-              class="form-control rounded-pill custom-input" 
-              v-model="searchTerm" 
+            <input
+              type="text"
+              class="form-control rounded-pill custom-input text-input"
+              v-model="searchTerm"
               placeholder="Inserisci il nome del ristorante..."
-            >
+            />
           </div>
         </div>
       </div>
-      
+
       <!-- Controlla se l'array dei ristoranti filtrati è vuoto -->
       <div v-if="filteredRestaurants.length === 0" class="text-center mt-5">
         <h4>Nessun ristorante presente.</h4>
       </div>
 
       <!-- Mostra i ristoranti solo se ce ne sono -->
-      <div v-else class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 justify-content-center mt-5">
-        <div v-for="restaurant in filteredRestaurants" :key="restaurant.id" class="category-card col-md-3">
+      <div
+        v-else
+        class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 justify-content-center mt-5"
+      >
+        <div
+          v-for="restaurant in filteredRestaurants"
+          :key="restaurant.id"
+          class="category-card col-md-3"
+        >
           <a :href="`/restaurant/${restaurant.id}`" class="card-link">
             <div class="card-content">
-              <img :src="restaurant.img" class="category-image" alt="Immagine ristorante" />
+              <img
+                :src="restaurant.img"
+                class="category-image"
+                alt="Immagine ristorante"
+              />
               <div class="card-body">
-                <h5 class="card-title category-name category-pill">{{ restaurant.name }}</h5>
+                <h5 class="card-title category-name category-pill">
+                  {{ restaurant.name }}
+                </h5>
               </div>
             </div>
           </a>
@@ -123,13 +152,15 @@ export default {
 
 <style lang="scss" scoped>
 .title {
-  font-family: "Paytone One", sans-serif;
+  font-family: 'Paytone One', sans-serif;
   font-size: 3rem;
   color: white;
   text-align: center;
   margin: 30px;
 }
-
+.text-input {
+  font-family: 'Open Sans', 'sans-serif';
+}
 .category-card {
   position: relative;
   border-radius: 10px;

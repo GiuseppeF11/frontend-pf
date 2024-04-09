@@ -71,7 +71,7 @@ export default {
           <button @click="increment()">+</button>
         </div>
         <button
-          class="button-style-4-cart"
+          class="button-style-4-cart text-button"
           @click="addToCart"
           :disabled="!this.canAddToCart"
         >
@@ -147,6 +147,9 @@ button {
 
 button:hover {
   background-color: #f68e00;
+}
+.text-button {
+  font-family: 'Open Sans', 'sans-serif';
 }
 
 * {
