@@ -100,8 +100,8 @@ export default {
 }
 
 .restaurant-image {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   margin: 0 auto 10px;
 }
