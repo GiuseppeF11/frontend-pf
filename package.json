@@ -21,7 +21,7 @@
     "vue": "^3.4.21",
     "vue-fontawesome": "^0.0.2",
     "vue-router": "^4.2.5",
-    "vuex": "^4.0.2"
+    "vuex": "^4.1.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.5.2",
