@@ -10,6 +10,7 @@ export default {
         count: this.currentQuantity + 1,
         food: this.food,
       });
+      this.$store.commit('toggleCart', true);
     },
     decrement() {
       if (this.currentQuantity > 1) {
@@ -20,6 +21,7 @@ export default {
       } else {
         this.$store.commit('removeFromCart', this.food.id);
       }
+      this.$store.commit('toggleCart', true);
     },
     addToCart(food) {
       if (this.canAddToCart) {
@@ -29,6 +31,7 @@ export default {
             : this.currentQuantity,
           food: this.food,
         });
+        this.$store.commit('toggleCart', true);
       }
     },
   },

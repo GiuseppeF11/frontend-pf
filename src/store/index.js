@@ -10,6 +10,7 @@ export default createStore({
   state: {
     cart: [],
     restaurant: '',
+    showCart: false,
   },
   mutations: {
     addToCart(state, item) {
@@ -46,6 +47,9 @@ export default createStore({
         state.cart.splice(i, 1);
       }
     },
+    toggleCart(state, val) {
+      state.showCart = val;
+    },
   },
   actions: {},
   getters: {
@@ -54,6 +58,9 @@ export default createStore({
     },
     getCart(state) {
       return state.cart;
+    },
+    showCart(state) {
+      return state.showCart;
     },
   },
   plugins: [vuexLocalStorage.plugin],

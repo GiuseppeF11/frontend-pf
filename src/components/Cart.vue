@@ -7,10 +7,16 @@ export default {
     getCart() {
       return this.$store.getters.getCart;
     },
+    showCart() {
+      return this.$store.getters.showCart;
+    },
   },
   methods: {
     removeFromCart(foodId) {
       this.$store.commit('removeFromCart', foodId);
+    },
+    hideCart() {
+      this.$store.commit('toggleCart', false);
     },
   },
 };
@@ -28,10 +34,12 @@ export default {
   </button>
   <div
     class="offcanvas offcanvas-start"
-    data-bs-backdrop="static"
+    :class="showCart ? 'show' : ''"
     tabindex="-1"
     id="staticBackdrop"
     aria-labelledby="staticBackdropLabel"
+    data-bs-scroll="true"
+    data-bs-backdrop="false"
   >
     <div class="offcanvas-header">
       <h5 class="offcanvas-title title-cart" id="staticBackdropLabel">
@@ -40,8 +48,8 @@ export default {
       <button
         type="button"
         class="btn-close"
-        data-bs-dismiss="offcanvas"
         aria-label="Close"
+        @click="hideCart"
       ></button>
     </div>
     <div class="offcanvas-body">
