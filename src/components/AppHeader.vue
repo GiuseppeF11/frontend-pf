@@ -23,13 +23,14 @@ export default {
         </div>
 
         <div class="d-flex">
-          <router-link to="/login">
-            <a class="button-style-3" href="/"> Sei gia un nostro partner? </a>
-          </router-link>
+          <a class="button-style-3" :href="`http://127.0.0.1:8000/login`">
+            Sei gia un nostro partner?
+          </a>
 
-          <router-link to="/register">
-            <a class="button-style-3" href="/"> Diventa un nostro partner! </a>
-          </router-link>
+          <a class="button-style-3" :href="`http://127.0.0.1:8000/register`">
+            Diventa un nostro partner!
+          </a>
+
           <Cart />
         </div>
       </div>

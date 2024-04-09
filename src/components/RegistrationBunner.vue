@@ -14,9 +14,10 @@
           Unisciti a Fastbites oggi stesso e fatti conoscere dalla nostra
           community appassionata di buon cibo!
         </p>
-        <router-link to="/register">
-          <a class="button-style-4" href="/"> Registrati </a>
-        </router-link>
+
+        <a class="button-style-4" :href="`http://127.0.0.1:8000/register`">
+          Registrati
+        </a>
       </div>
 
       <div class="image">
