@@ -2,6 +2,7 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import { router } from './router';
 import store from './store';
+import VuexPersist from 'vuex-persist';
 
 import * as bootstrap from 'bootstrap';
 
@@ -14,5 +15,6 @@ library.add(faCartShopping);
 createApp(App)
   .use(router)
   .use(store)
+  .use(Vuex)
   .component('font-awesome-icon', FontAwesomeIcon)
   .mount('#app');
