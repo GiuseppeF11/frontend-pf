@@ -35,7 +35,7 @@ export default {
       ></button>
     </div>
     <div class="offcanvas-body">
-      <div>I will not close if you click outside of me.</div>
+      <!-- <div>I will not close if you click outside of me.</div> -->
     </div>
   </div>
 </template>

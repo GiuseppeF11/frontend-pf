@@ -37,12 +37,12 @@ export default {
 
 <template>
   <main>
-    <h1 class="title">{{ this.restaurant.name }}</h1>
-    <h2 class="subtitle">Menù</h2>
+    <h1 class="title mt-4">{{ this.restaurant.name }}</h1>
+    <h2 class="subtitle text-center mb-4">Menù</h2>
     <div class="row justify-content-center">
       <div class="col-md-4">
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" v-model="searchTerm" placeholder="Inserisci il nome del cibo...">
+        <div class="input-group mb-4">
+          <input type="text" class="form-control rounded-pill custom-input" v-model="searchTerm" placeholder="Inserisci il nome del cibo...">
         </div>
       </div>
     </div>
@@ -60,16 +60,26 @@ export default {
 
 <style lang="scss" scoped>
 .title {
-  font-family: 'Lora', 'sans-serif';
+  font-family: "Paytone One", sans-serif;
   font-size: 3rem;
   color: white;
-  margin: 30px;
+  text-align: center;
 }
+
 .subtitle {
-  font-family: 'Lora', 'sans-serif';
   font-size: 2rem;
   color: white;
   text-align: center;
-  margin: 30px;
+}
+
+.form-control.rounded-pill.custom-input {
+  border-radius: 25px; 
+  outline: none !important; 
+  box-shadow: none !important; 
+}
+
+.input-group.my-4 {
+  max-width: 300px; 
+  margin: 0 auto; 
 }
 </style>

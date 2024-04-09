@@ -1,42 +1,42 @@
 <script>
-export default {
-  data() {
-    return {
-      images: ['pizza.avif', 'sushi.avif', 'cannolo-siciliano.avif'],
-      currentSlide: 0,
-      intervalId: null,
-    };
-  },
-  methods: {
-    nextSlide() {
-      if (this.currentSlide === this.images.length - 1) {
-        this.currentSlide = 0;
-      } else {
-        this.currentSlide++;
-      }
-    },
-    prevSlide() {
-      if (this.currentSlide === 0) {
-        this.currentSlide = this.images.length - 1;
-      } else {
-        this.currentSlide--;
-      }
-    },
-  },
-  mounted() {
-    this.intervalId = setInterval(() => {
-      this.nextSlide();
-    }, 4000);
-  },
-  beforeDestroy() {
-    clearInterval(this.intervalId);
-  },
-};
+// export default {
+//   data() {
+//     return {
+//       images: ['pizza.avif', 'sushi.avif', 'cannolo-siciliano.avif'],
+//       currentSlide: 0,
+//       intervalId: null,
+//     };
+//   },
+//   methods: {
+//     nextSlide() {
+//       if (this.currentSlide === this.images.length - 1) {
+//         this.currentSlide = 0;
+//       } else {
+//         this.currentSlide++;
+//       }
+//     },
+//     prevSlide() {
+//       if (this.currentSlide === 0) {
+//         this.currentSlide = this.images.length - 1;
+//       } else {
+//         this.currentSlide--;
+//       }
+//     },
+//   },
+//   mounted() {
+//     this.intervalId = setInterval(() => {
+//       this.nextSlide();
+//     }, 4000);
+//   },
+//   beforeDestroy() {
+//     clearInterval(this.intervalId);
+//   },
+// };
+
 </script>
 
 <template>
-
-  <div class="jumbotron">
+  <div class="my-jumbotron mb-5">
     <h1 class="title">Benvenuto in fastbites!</h1>
     <p class="subtitle fs-5">
         Hai fame? Festeggia ogni boccone di felicità consegnato direttamente a
@@ -69,28 +69,57 @@ export default {
 <style lang="scss" scoped>
 @use '../assets/scss/partials/variables.scss' as *;
 @use '../../src/assets/scss/font.scss' as *;
-
-
-.jumbotron {
+.my-jumbotron {
+  position: relative;
   background-image: url("/img/jumbotron.png");
-  background-size: cover;
-  height: 100vh; 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  background-color: none;
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: center;
+  height: 600px;
 
-  h1 { 
+  .title {
     font-family: "Paytone One", sans-serif;
-    color: white;;
+    color: white;
     font-size: 4rem;
-
+    position: absolute;
+    top: 40%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
-  p {
+
+  .subtitle {
     font-family: 'Open Sans', sans-serif;
     color: white;
     font-size: 1.5rem;
+    position: absolute;
+    top: 48%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @media (max-width: 768px) {
+    .title {
+      font-size: 3rem;
+      top: 20%; 
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      top: 15%; 
+    }
+  }
+
+  @media (max-width: 576px) {
+    .title {
+      font-size: 2.5rem;
+      top: 6%; /* Adjusted for higher positioning */
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      top: 12%; /* Adjusted for higher positioning */
+    }
   }
 }
 
