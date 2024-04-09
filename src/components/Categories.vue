@@ -79,9 +79,7 @@ export default {
         <div v-for="category in categories" :key="category.id" class="category-card col-md-3">
           <div @click="toggleCategory(category.id)">
             <div class="card-content">
-              <div class="card-body">
                 <h5 class="card-title category-name" :class="[ isCategoryActive(category.id) ? 'category-pill-active' : 'category-pill' ]">{{ category.name }}</h5>
-              </div>
             </div>
           </div>
         </div>
@@ -140,11 +138,6 @@ export default {
   height: 150px;
   border-radius: 50%;
   margin: 0 auto 10px;
-}
-
-.category-image img {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
 }
 
