@@ -15,7 +15,7 @@
           community appassionata di buon cibo!
         </p>
 
-        <a class="button-style-4" :href="`http://127.0.0.1:8000/register`">
+        <a class="button-style-4" :href="`http://127.0.0.1:8000/`">
           Registrati
         </a>
       </div>
