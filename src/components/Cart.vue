@@ -72,6 +72,11 @@ export default {
   border: none;
   padding: 5px 10px;
   width: 50px;
+  &.button-cart:hover {
+    color: white;
+    background-color: transparent;
+    border: 1px solid white;
+  }
 }
 .title-cart {
   font-family: 'Lora', 'sans serif';
