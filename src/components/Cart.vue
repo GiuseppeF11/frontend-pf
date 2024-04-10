@@ -84,8 +84,9 @@ export default {
   background-color: rgb(243, 243, 243);
   color: rgba(246, 144, 30, 1);
   border: none;
-  padding: 5px 10px;
+  height: 50px;
   width: 50px;
+  transition: 0.2s ease-in;
   &.button-cart:hover {
     color: white;
     background-color: transparent;

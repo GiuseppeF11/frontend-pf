@@ -1,5 +1,4 @@
 <script>
-import Cart from './Cart.vue';
 
 export default {
   data() {
@@ -8,7 +7,6 @@ export default {
     };
   },
   components: {
-    Cart,
   },
   mounted() {
     this.checkScreenSize();
@@ -40,7 +38,6 @@ export default {
 			<!-- Visualizza in modo condizionale i collegamenti in base alle dimensioni dello schermo -->
 			<a v-if="!isSmallScreen" class="nav-link button-style-3" :href="`http://127.0.0.1:8000/login`">Sei gia un nostro partner?</a>
 			<a v-if="!isSmallScreen" class="nav-link button-style-3" :href="`http://127.0.0.1:8000/register`">Diventa un nostro partner!</a>
-			<Cart />
 	
 			<!-- Visualizza in modo condizionale l'hamburger menu -->
 			<button

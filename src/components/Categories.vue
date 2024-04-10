@@ -141,12 +141,10 @@ export default {
 					</div>
 				</div>
 
-				<!-- Mostra i ristoranti solo se ce ne sono -->
 				<div v-if="filteredRestaurants.length === 0" class="allert-subtitle text-center mt-3 mb-5">
 					<p>Nessun ristorante presente.</p>
 				</div>
-
-				<!-- Mostra i ristoranti filtrati e visibili -->
+        
 				<div v-else class="row justify-content-center mt-5">
 					<div
 					v-for="restaurant in visibleRestaurants"
