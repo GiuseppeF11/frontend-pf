@@ -19,7 +19,7 @@ export default {
       for (let item of this.getCart) {
         total += item.food.price * item.count;
       }
-      return total.toFixed(2); // Arrotonda il totale a due decimali
+      return total.toFixed(2);
     },
   },
   methods: {
@@ -63,9 +63,11 @@ export default {
           <CartItem :cartItem="cartItem" />
         </div>
         <div class="my-checkout d-flex justify-content-center">
-          <router-link class="btn my-checkout-btn mb-3"
-              :to="{ name: 'credentials' }">
-              Check Out <font-awesome-icon icon="fa-solid fa-arrow-right pl-2" />
+          <router-link
+            class="btn my-checkout-btn mb-3"
+            :to="{ name: 'credentials' }"
+          >
+            Check Out <font-awesome-icon icon="fa-solid fa-arrow-right pl-2" />
           </router-link>
         </div>
       </div>
