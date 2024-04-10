@@ -49,7 +49,9 @@ export default {
         <h4 class="food-name">{{ cartItem.food.name }}</h4>
       </div>
       <div class="total-price">
-        <span class="price">{{ cartItem.food.price * currentQuantity }} €</span>
+        <span class="price"
+          >{{ (cartItem.food.price * currentQuantity).toFixed(2) }} €</span
+        >
         <button class="trash" @click="removeFromCart(cartItem.food.id)">
           <font-awesome-icon :icon="['fas', 'trash-can']" size="xs" />
         </button>
