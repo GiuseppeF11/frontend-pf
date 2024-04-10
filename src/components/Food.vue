@@ -75,7 +75,7 @@ export default {
         </div>
       </a>
     </div>
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center" v-if="food.availability === 1">
       <button
         class="button-style-4-cart text-button"
         @click.stop="addToCart"
