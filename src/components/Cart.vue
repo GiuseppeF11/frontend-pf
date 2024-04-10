@@ -14,6 +14,13 @@ export default {
     hasElementsInCart() {
       return this.$store.getters.showCart;
     },
+    totalPrice() {
+      let total = 0;
+      for (let item of this.getCart) {
+        total += item.food.price * item.count;
+      }
+      return total.toFixed(2); // Arrotonda il totale a due decimali
+    },
   },
   methods: {
     hideCart() {
@@ -56,6 +63,8 @@ export default {
           <CartItem :cartItem="cartItem" />
         </div>
       </div>
+      <hr />
+      <h4>Totale: {{ totalPrice }}</h4>
     </div>
   </div>
 </template>

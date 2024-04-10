@@ -57,12 +57,12 @@ export default {
 <template>
   <div class="food-card col-md-8 mt-4">
     <div>
-      <a :href="`/food/${food.id}`" style="text-decoration: none;">
+      <a :href="`/food/${food.id}`" style="text-decoration: none">
         <img :src="food.img" class="food-image" alt="Immagine cibo" />
         <div class="card-body">
           <h4 class="card-title food-name">{{ food.name }}</h4>
           <h6 class="text-dark">{{ food.price }} €</h6>
-          <!-- <div class="input-wrapper my-4" v-if="currentQuantity">        //DA INSERIRE NEL OFF CANVAS
+          <!-- <div class="input-wrapper my-4" v-if="currentQuantity">        
             <button @click="decrement()">-</button>
             <input
               type="number"
@@ -75,12 +75,19 @@ export default {
         </div>
       </a>
     </div>
-    <div class="d-flex justify-content-center ">
-      <button class="button-style-4-cart text-button" @click.stop="addToCart" :disabled="!this.canAddToCart">
+    <div class="d-flex justify-content-center">
+      <button
+        class="button-style-4-cart text-button"
+        @click.stop="addToCart"
+        :disabled="!this.canAddToCart"
+      >
         Aggiungi
       </button>
     </div>
-    <div class="badge py-1 px-3" :class="food.availability === 1 ? 'bg-success' : 'bg-danger'">
+    <div
+      class="badge py-1 px-3"
+      :class="food.availability === 1 ? 'bg-success' : 'bg-danger'"
+    >
       {{ food.availability === 1 ? 'Disponibile' : 'Non disponibile' }}
     </div>
   </div>
