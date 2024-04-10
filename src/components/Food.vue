@@ -73,13 +73,19 @@ export default {
           />
           <button @click="increment()">+</button>
         </div>
-        <button
-          class="button-style-4-cart text-button"
-          @click="addToCart"
-          :disabled="!this.canAddToCart"
-        >
-          Aggiungi
-        </button>
+        
+        <div class="d-flex justify-content-center ">
+          <button class="button-style-4-cart text-button" @click="addToCart" :disabled="!this.canAddToCart">
+            Aggiungi
+          </button>
+        
+          <div>
+            <a :href="`/food/${food.id}`" class="button-style-4-cart text-button"> Vedi </a>
+          </div>
+        </div>
+        <div class="badge py-1 px-3" :class="food.availability === 1 ? 'bg-success' : 'bg-danger'">
+          {{ food.availability === 1 ? 'Disponibile' : 'Non disponibile' }}
+        </div>
       </div>
     </div>
   </div>
@@ -103,11 +109,6 @@ export default {
   height: 100px;
   border-radius: 50%;
   margin: 0 auto 10px;
-}
-
-.food-image img {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
 }
 
@@ -170,12 +171,12 @@ body {
 }
 
 .button-style-4-cart {
-  width: 200px;
-  font-size: 18px;
+  width: auto;
+  font-size: 15px;
   display: inline-block;
   text-decoration: none;
   color: white;
-  padding: 8px 25px;
+  padding: 5px 15px;
   margin: 4px 10px;
   cursor: pointer;
   border-radius: 24px;
