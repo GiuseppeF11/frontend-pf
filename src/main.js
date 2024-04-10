@@ -10,8 +10,9 @@ import * as bootstrap from 'bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faCartShopping);
+library.add(faCartShopping, faTrashCan);
 
 createApp(App)
   .use(router)

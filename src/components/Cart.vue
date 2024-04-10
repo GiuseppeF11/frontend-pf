@@ -33,7 +33,7 @@ export default {
     <font-awesome-icon :icon="['fas', 'cart-shopping']" />
   </button>
   <div
-    class="offcanvas offcanvas-start"
+    class="offcanvas offcanvas-end"
     :class="showCart ? 'show' : ''"
     tabindex="-1"
     id="staticBackdrop"
@@ -47,7 +47,7 @@ export default {
       </h5>
       <button
         type="button"
-        class="btn-close"
+        class="btn-close button-close"
         aria-label="Close"
         @click="hideCart"
       ></button>
@@ -56,7 +56,9 @@ export default {
       <div class="cart">
         <div class="item" v-for="cartItem in this.getCart" :key="cartItem.id">
           {{ cartItem.count }} x {{ cartItem.food.name }}
-          <button @click="removeFromCart(cartItem.food.id)">-</button>
+          <button @click="removeFromCart(cartItem.food.id)">
+            <font-awesome-icon :icon="['fas', 'trash-can']" size="xs" />
+          </button>
         </div>
       </div>
     </div>
@@ -82,6 +84,9 @@ export default {
   font-family: 'Lora', 'sans serif';
   font-size: 2.5rem;
 }
+.button-close {
+  width: 20px;
+}
 .item {
   font-family: 'Open Sans', 'sans serif';
   font-size: 1.3rem;
@@ -93,6 +98,6 @@ button {
   color: white;
   border: none;
   padding: 5px 10px;
-  width: 35px;
+  width: 40px;
 }
 </style>
