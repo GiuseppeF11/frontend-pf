@@ -1,7 +1,7 @@
 <template>
 	<div class="container">
-		<div class="mb-4 row">
-			<div class="col-lg-6 pb-md-5 pb-sm-5 text-center text-lg-start">
+		<div class="mb-4 row align-items-center justify-content-center">
+			<div class="col-lg-6 col-md-10 text-center text-lg-start">
 				<h2 class="title pb-2">
 				Diventa un ristoratore su Fastbites
 				</h2>
@@ -14,12 +14,12 @@
 				Unisciti a Fastbites oggi stesso e fatti conoscere dalla nostra
 				community appassionata di buon cibo!
 				</p>
-				<a class="button-style-4 text-button" :href="`http://127.0.0.1:8000/`">
+				<a class="button-style-4 text-button mb-4" :href="`http://127.0.0.1:8000/`">
 				Registrati
 				</a>
 			</div>
 
-			<div class="col-lg-6">
+			<div class="col-lg-6 col-md-10 mt-4">
 				<img src="/img/deliveryman.png" alt="" class="img-fluid" />
 			</div>
 		</div>
@@ -29,6 +29,7 @@
   <style lang="scss" scoped>
 	@use '../assets/scss/partials/variables.scss' as *;
 	@use '../../src/assets/scss/font.scss' as *;
+
   
 	.title {
 	  font-family: 'Paytone One', sans-serif;
@@ -39,7 +40,7 @@
   
 	.subtitle {
 	  font-size: 18px;
-	  line-height: 1.5;
+	  line-height: 2;
 	  color: white;
 	  font-family: 'Open Sans', sans-serif;
 	}

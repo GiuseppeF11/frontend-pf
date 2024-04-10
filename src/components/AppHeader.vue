@@ -54,7 +54,7 @@ export default {
 			<!-- Offcanvas menu -->
 			<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
 			  <div class="offcanvas-header m-2">
-				<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+				<button type="button" class="btn-close button-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 			  </div>
 			  <div class="offcanvas-body m-4">
 				<ul class="navbar-nav">
@@ -160,7 +160,15 @@ export default {
   padding: 0.5rem;
 }
 
+.subtitle {
+	font-family: 'Paytone One', sans-serif;
+	color: #BC3431;
+	margin-bottom: 0;
+	line-height: 1.5;
+	}
+
 #offcanvasLabel {
+    font-family: 'Paytone One', sans-serif;
     color: #BC3431;
   margin-bottom: 0;
   line-height: 1.5;
@@ -176,5 +184,21 @@ export default {
     outline: none;
     box-shadow: none;
 }
+
+.button-close {
+  width: 20px;
+}
+
+button {
+  margin: 0 15px;
+  border-radius: 50%;
+  background-color: rgba(246, 144, 30, 1);
+  color: white;
+  border: none;
+  padding: 15px;
+  width: 50px;
+  margin-bottom: 5px;
+}
+
 
 </style>

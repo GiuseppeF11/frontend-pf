@@ -46,7 +46,7 @@ export default {
     data-bs-scroll="true"
     data-bs-backdrop="false"
   >
-    <div class="offcanvas-header">
+    <div class="offcanvas-header m-2">
       <h5 class="offcanvas-title title-cart" id="staticBackdropLabel">
         Carrello
       </h5>
@@ -57,27 +57,27 @@ export default {
         @click="hideCart"
       ></button>
     </div>
-    <div class="offcanvas-body">
+    <div class="offcanvas-body m-4">
       <div class="cart">
         <div class="item" v-for="cartItem in this.getCart" :key="cartItem.id">
           <CartItem :cartItem="cartItem" />
         </div>
-        <div class="my-checkout d-flex justify-content-center">
-          <router-link
-            class="btn my-checkout-btn mb-3"
-            :to="{ name: 'credentials' }"
-          >
-            Check Out <font-awesome-icon icon="fa-solid fa-arrow-right pl-2" />
-          </router-link>
-        </div>
       </div>
       <hr />
-      <h4>Totale: {{ totalPrice }}</h4>
+      <h4 class="total">Totale: € {{ totalPrice }}</h4>
+
+      <div class="my-checkout my-5 d-flex justify-content-center">
+          <router-link class="checkout-button mb-3"
+              :to="{ name: 'credentials' }">
+              Check Out <font-awesome-icon icon="fa-solid fa-arrow-right pl-2" />
+          </router-link>
+        </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
+
 .button-cart {
   margin: 0 15px;
   border-radius: 50%;
@@ -94,9 +94,25 @@ export default {
   }
 }
 .title-cart {
-  font-family: 'Lora', 'sans serif';
-  font-size: 2.5rem;
+	font-family: 'Paytone One', sans-serif;
+	color: #BC3431;
+  font-size: 24px;
+	margin-bottom: 0;
+	line-height: 1.5;
 }
+
+h4 {
+  font-family: 'Paytone One', sans-serif;
+	color: #BC3431;
+  font-size: 24px;
+	margin-bottom: 0;
+	line-height: 1.5;
+}
+
+hr {
+	color: #BC3431;
+}
+
 .button-close {
   width: 20px;
 }
@@ -104,14 +120,45 @@ export default {
   font-family: 'Open Sans', 'sans serif';
   font-size: 1.3rem;
 }
+
 button {
   margin: 0 15px;
   border-radius: 50%;
   background-color: rgba(246, 144, 30, 1);
   color: white;
   border: none;
-  padding: 5px 10px;
-  width: 40px;
+  padding: 15px;
+  width: 50px;
   margin-bottom: 5px;
+}
+
+button:focus,
+    button:active {
+    outline: none;
+    box-shadow: none;
+}
+
+.checkout-button {
+  display: inline-block;
+  text-decoration: none;
+  color:white;
+  border: 1px solid transparent;
+  padding: 8px 20px;
+  margin: 4px 10px;
+  cursor: pointer;
+  border-radius: 24px;
+  background-color: #BC3431;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+.checkout-button:hover {
+  color: #BC3431;
+  background-color: transparent;
+  border: 1px solid #BC3431;
+}
+
+.button-style-3 a {
+  text-decoration: none;
 }
 </style>
