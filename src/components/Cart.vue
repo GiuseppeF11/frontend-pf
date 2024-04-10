@@ -66,12 +66,12 @@ export default {
 <style lang="scss" scoped>
 .button-cart {
   margin: 0 15px;
-  border-radius: 25%;
+  border-radius: 50%;
   background-color: rgb(243, 243, 243);
   color: rgba(246, 144, 30, 1);
   border: none;
   padding: 5px 10px;
-  width: 35px;
+  width: 50px;
 }
 .title-cart {
   font-family: 'Lora', 'sans serif';
