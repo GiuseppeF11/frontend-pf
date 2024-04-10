@@ -1,5 +1,9 @@
 <script>
+import CartItem from './CartItem.vue';
 export default {
+  components: {
+    CartItem,
+  },
   data() {
     return {};
   },
@@ -7,34 +11,28 @@ export default {
     getCart() {
       return this.$store.getters.getCart;
     },
-    showCart() {
+    hasElementsInCart() {
       return this.$store.getters.showCart;
     },
   },
   methods: {
-    removeFromCart(foodId) {
-      this.$store.commit('removeFromCart', foodId);
-    },
     hideCart() {
       this.$store.commit('toggleCart', false);
+    },
+    showCart() {
+      this.$store.commit('toggleCart', true);
     },
   },
 };
 </script>
 
 <template>
-  <button
-    class="button-cart"
-    type="button"
-    data-bs-toggle="offcanvas"
-    data-bs-target="#staticBackdrop"
-    aria-controls="staticBackdrop"
-  >
+  <button class="button-cart" type="button" @click="showCart">
     <font-awesome-icon :icon="['fas', 'cart-shopping']" />
   </button>
   <div
     class="offcanvas offcanvas-end"
-    :class="showCart ? 'show' : ''"
+    :class="hasElementsInCart ? 'show' : ''"
     tabindex="-1"
     id="staticBackdrop"
     aria-labelledby="staticBackdropLabel"
@@ -55,10 +53,7 @@ export default {
     <div class="offcanvas-body">
       <div class="cart">
         <div class="item" v-for="cartItem in this.getCart" :key="cartItem.id">
-          {{ cartItem.count }} x {{ cartItem.food.name }}
-          <button @click="removeFromCart(cartItem.food.id)">
-            <font-awesome-icon :icon="['fas', 'trash-can']" size="xs" />
-          </button>
+          <CartItem :cartItem="cartItem" />
         </div>
       </div>
     </div>
@@ -99,5 +94,6 @@ button {
   border: none;
   padding: 5px 10px;
   width: 40px;
+  margin-bottom: 5px;
 }
 </style>
