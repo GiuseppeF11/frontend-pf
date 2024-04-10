@@ -62,6 +62,12 @@ export default {
         <div class="item" v-for="cartItem in this.getCart" :key="cartItem.id">
           <CartItem :cartItem="cartItem" />
         </div>
+        <div class="my-checkout d-flex justify-content-center">
+          <router-link class="btn my-checkout-btn mb-3"
+              :to="{ name: 'credentials' }">
+              Check Out <font-awesome-icon icon="fa-solid fa-arrow-right pl-2" />
+          </router-link>
+        </div>
       </div>
       <hr />
       <h4>Totale: {{ totalPrice }}</h4>
