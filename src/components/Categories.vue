@@ -8,8 +8,8 @@ export default {
       restaurants: [],
       activeCategories: [],
       searchTerm: '',
-	  visibleRestaurants: [],
-      visibleRestaurantCount: 12, 
+      visibleRestaurants: [],
+      visibleRestaurantCount: 12,
     };
   },
   mounted() {
@@ -26,6 +26,7 @@ export default {
       .then(({ data }) => {
         console.log('Dati dei ristoranti:', data);
         this.restaurants = data.payload;
+        this.updateVisibleRestaurants(); 
       })
       .catch(error => {
         console.error('Errore nel recuperare l\'elenco dei ristoranti:', error);
@@ -39,15 +40,22 @@ export default {
       } else {
         this.activeCategories.splice(index, 1);
       }
+      this.updateVisibleRestaurants(); 
     },
     isCategoryActive(categoryId) {
       return this.activeCategories.includes(categoryId);
     },
     loadMoreRestaurants() {
-      this.visibleRestaurantCount += 12; // Load next 12 restaurants
+      this.visibleRestaurantCount += 12;
+      this.updateVisibleRestaurants();
     },
     seeLessRestaurants() {
-      this.visibleRestaurantCount = 12; // Reset to show only 12 restaurants
+      this.visibleRestaurantCount = 12;
+      this.updateVisibleRestaurants();
+    },
+    updateVisibleRestaurants() {
+      let filteredByCategory = this.filteredRestaurants;
+      this.visibleRestaurants = filteredByCategory.slice(0, this.visibleRestaurantCount);
     },
   },
   computed: {
@@ -75,10 +83,19 @@ export default {
     },
 
     ShowLoadMoreLink() {
-      return this.filteredRestaurants.length > this.visibleRestaurantCount;
+      return this.filteredRestaurants.length > this.visibleRestaurantCount &&
+        this.visibleRestaurants.length >= 12;
     },
     ShowSeeLessLink() {
-      return this.visibleRestaurantCount > 12; // Show only if more than 12 restaurants are displayed
+      return this.visibleRestaurantCount > 12 && this.visibleRestaurants.length >= 12;
+    },
+  },
+  watch: {
+    searchTerm() {
+      this.updateVisibleRestaurants();
+    },
+    visibleRestaurantCount() {
+      this.updateVisibleRestaurants(); 
     },
   },
 };
@@ -87,68 +104,87 @@ export default {
 
 <template>
 	<main>
-	  <div class="container">
-		<!-- Categories Section -->
-		<!-- Your existing code for categories -->
-  
-		<div class="container mb-5 pb-5">
-		  <h2 class="secondary-title">Lista dei ristoranti</h2>
-		  <div class="row justify-content-center">
-			<div class="col-md-6">
-			  <div class="input-group my-2">
-				<input
-				  type="text"
-				  class="form-control rounded-pill custom-input text-input"
-				  v-model="searchTerm"
-				  placeholder="Inserisci il nome del ristorante..."
-				/>
-			  </div>
-			</div>
-		  </div>
-  
-		  <!-- Controlla se l'array dei ristoranti filtrati è vuoto -->
-		  <!-- Your existing code for displaying "Nessun ristorante presente" -->
-  
-		  <!-- Mostra i ristoranti solo se ce ne sono -->
-		  <div class="row justify-content-center mt-5">
-			<div
-			  v-for="(restaurant, index) in filteredRestaurants"
-			  :key="restaurant.id"
-			  v-show="index < visibleRestaurantCount"
-			  class="category-card col-lg-3 col-md-4 col-sm-3 col-sm-6 col-6 text-center p-4"
-			>
-			  <a :href="`/restaurant/${restaurant.id}`" class="text-decoration-none">
-				<div class="card-content d-flex align-items-center flex-column">
-				  <img
-					:src="restaurant.img"
-					class="category-image"
-					alt="Immagine ristorante"
-				  />
-				  <div class="mt-n3">
-					<h5 class="text-center card-title category-name category-pill-2">
-					  {{ restaurant.name }}
-					</h5>
-				  </div>
+		<div class="container">
+			<div class="row text-center mx-lg-5">
+				<div class="col-lg-12">
+					<h1 class="title pb-2">Categorie</h1>
+					<p class="subtitle mb-5">
+						Se sei alla ricerca di un ristorante che soddisfi le tue preferenze e il tuo umore del momento, sei nel posto giusto! Con una vasta gamma di categorie tra cui scegliere, troverai sicuramente il posto perfetto per la tua prossima esperienza culinaria.
+					</p>
 				</div>
-			  </a>
 			</div>
-		  </div>
-  
-		  <div v-if="ShowLoadMoreLink" class="mt-5 text-center">
-			<a @click.prevent="loadMoreRestaurants" href="#" class="button-style-3">
-			  Carica Altri Ristoranti
-			</a>
-		  </div>
-  
-		  <div v-if="ShowSeeLessLink" class="mt-5 text-center">
-			<a @click.prevent="seeLessRestaurants" href="#" class="button-style-3">
-			  Vedi Meno
-			</a>
-		  </div>
+
+			<div class="row g-0 justify-content-center align-items-center mx-lg-5 pb-2"> 
+				<div v-for="category in categories" :key="category.id" class="col-lg-3 col-md-5 col-sm-6 col-6 my-2 d-flex justify-content-center">
+					<div @click="toggleCategory(category.id)">
+						<h5 class="card-title category-name text-center"
+							:class="[isCategoryActive(category.id) ? 'category-pill-active' : 'category-pill']">
+							{{ category.name }}
+						</h5>
+					</div>
+				</div>
+			</div>
 		</div>
-	  </div>
+
+		<div class="container mb-5 pb-5">
+			<h2 class="secondary-title">Lista dei ristoranti</h2>
+			<div class="row justify-content-center">
+				<div class="col-md-6">
+					<div class="input-group my-2">
+						<input
+						type="text"
+						class="form-control rounded-pill custom-input text-input"
+						v-model="searchTerm"
+						placeholder="Inserisci il nome del ristorante..."
+						/>
+						</div>
+					</div>
+				</div>
+
+				<!-- Mostra i ristoranti solo se ce ne sono -->
+				<div v-if="filteredRestaurants.length === 0" class="allert-subtitle text-center mt-3 mb-5">
+					<p>Nessun ristorante presente.</p>
+				</div>
+
+				<!-- Mostra i ristoranti filtrati e visibili -->
+				<div v-else class="row justify-content-center mt-5">
+					<div
+					v-for="restaurant in visibleRestaurants"
+					:key="restaurant.id"
+					class="category-card col-lg-3 col-md-4 col-sm-3 col-sm-6 col-6 text-center p-4"
+					>
+					<a :href="`/restaurant/${restaurant.id}`" class="text-decoration-none">
+			
+					<div class="card-content d-flex align-items-center flex-column">
+						<img
+						:src="restaurant.img"
+						class="category-image"
+						alt="Immagine ristorante"
+					/>
+					<div class="mt-n3">
+						<h5 class="text-center card-title category-name category-pill-2">
+						{{ restaurant.name }}
+						</h5>
+					</div>
+					</div>
+					</a>
+					</div>
+
+					<div v-if="ShowLoadMoreLink" class="text-center mt-4">
+						<a @click.prevent="loadMoreRestaurants" href="#" class="button-style-3">
+							Carica Altri Ristoranti
+						</a>
+					</div>
+
+					<div v-if="ShowSeeLessLink" class="text-center mt-4">
+						<a @click.prevent="seeLessRestaurants" href="#" class="button-style-3">
+							Vedi Meno
+						</a>
+					</div>
+				</div>	
+		</div>
 	</main>
-  </template>
+</template>
 
 <style lang="scss" scoped>
 .title {
@@ -180,7 +216,6 @@ export default {
 .text-input {
   font-family: 'Open Sans', 'sans-serif';
 }
-
 
 .category-image {
   width: 170px;
@@ -295,13 +330,13 @@ export default {
 .button-style-3 {
         display: inline-block;
         text-decoration: none;
-        color: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
         border: 1px solid transparent;
         padding: 8px 20px;
         margin: 4px 10px;
         cursor: pointer;
         border-radius: 24px;
-        background-color: white;
+        background-color: rgba(246, 144, 30, 1);
         transition:
             background-color 0.3s ease,
             border-color 0.3s ease;
