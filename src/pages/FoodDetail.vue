@@ -23,8 +23,13 @@ export default {
 <template>
   <main>
     <div class="container">
+      <div class="d-flex justify-content-center mb-5 ">
+        <router-link :to="`/restaurant/${food.restaurant_id}`" class="button-style-4-cart text-button" >
+          <i class="fa-solid fa-arrow-left"></i> Torna al ristorante
+        </router-link>
+      </div>
       <div class="row">
-        <h1 class="text-center">
+        <h1 class="text-center mb-4">
           {{ food.name }}
         </h1>
         <div class="col-auto p-0 m-2 frame">
@@ -107,5 +112,24 @@ export default {
   background-color: #eca588bd;
   box-shadow: 0px 0px 15px;
   border-radius: 10px;
+}
+
+.button-style-4-cart {
+  width: auto;
+  font-size: 18px;
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  padding: 5px 15px;
+  margin: 4px 10px;
+  cursor: pointer;
+  border-radius: 24px;
+  transition: background-color 0.3s ease;
+  border: none;
+  background-color: white;
+  &:hover {
+    background-color: rgba(246, 144, 30, 1);
+    color: white;
+  }
 }
 </style>

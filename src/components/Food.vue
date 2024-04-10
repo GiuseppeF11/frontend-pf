@@ -56,37 +56,32 @@ export default {
 
 <template>
   <div class="food-card col-md-8 mt-4">
-    <div class="card-content">
-      <img :src="food.img" class="food-image" alt="Immagine cibo" />
-      <div class="card-body">
-        <h4 class="card-title food-name">{{ food.name }}</h4>
-
-        <h6>{{ food.price }} €</h6>
-
-        <div class="input-wrapper my-4" v-if="currentQuantity">
-          <button @click="decrement()">-</button>
-          <input
-            type="number"
-            min="1"
-            :value="currentQuantity"
-            class="pill-input"
-          />
-          <button @click="increment()">+</button>
+    <div>
+      <a :href="`/food/${food.id}`" style="text-decoration: none;">
+        <img :src="food.img" class="food-image" alt="Immagine cibo" />
+        <div class="card-body">
+          <h4 class="card-title food-name">{{ food.name }}</h4>
+          <h6 class="text-dark">{{ food.price }} €</h6>
+          <!-- <div class="input-wrapper my-4" v-if="currentQuantity">        //DA INSERIRE NEL OFF CANVAS
+            <button @click="decrement()">-</button>
+            <input
+              type="number"
+              min="1"
+              :value="currentQuantity"
+              class="pill-input"
+            />
+            <button @click="increment()">+</button>
+          </div> -->
         </div>
-        
-        <div class="d-flex justify-content-center ">
-          <button class="button-style-4-cart text-button" @click="addToCart" :disabled="!this.canAddToCart">
-            Aggiungi
-          </button>
-        
-          <div>
-            <a :href="`/food/${food.id}`" class="button-style-4-cart text-button"> Vedi </a>
-          </div>
-        </div>
-        <div class="badge py-1 px-3" :class="food.availability === 1 ? 'bg-success' : 'bg-danger'">
-          {{ food.availability === 1 ? 'Disponibile' : 'Non disponibile' }}
-        </div>
-      </div>
+      </a>
+    </div>
+    <div class="d-flex justify-content-center ">
+      <button class="button-style-4-cart text-button" @click.stop="addToCart" :disabled="!this.canAddToCart">
+        Aggiungi
+      </button>
+    </div>
+    <div class="badge py-1 px-3" :class="food.availability === 1 ? 'bg-success' : 'bg-danger'">
+      {{ food.availability === 1 ? 'Disponibile' : 'Non disponibile' }}
     </div>
   </div>
 </template>
@@ -94,13 +89,16 @@ export default {
 <style lang="scss" scoped>
 .food-card {
   background-color: rgba(255, 255, 255, 0.7);
-  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgb(108, 108, 108);
+  border-radius: 20px;
   margin: 10px;
   padding: 20px;
   text-align: center;
   width: 275px;
-  a {
-    text-decoration: none;
+  cursor: pointer;
+  transition: 0.2s;
+  &:hover {
+    transform: scale(1.09);
   }
 }
 
