@@ -1,6 +1,6 @@
 <template>
     <main>
-        <div class="my-jumbotron d-flex align-items-center">
+        <div class="my-jumbotron d-flex align-items-center mb-2">
             <div class="col mx-sm-5 text-center"> <!-- Added text-center class -->
                 <h1 class="title">Benvenuto in fastbites!</h1>
                 <p class="subtitle fs-5">
@@ -17,7 +17,7 @@
     @use '../../src/assets/scss/font.scss' as *;
 
     .my-jumbotron {
-        height: 600px;
+        height: 500px;
         background-image: url('/img/jumbotron.png');
         background-size: 100% auto;
         background-position: center;
