@@ -1,191 +1,70 @@
-<script>
-// export default {
-//   data() {
-//     return {
-//       images: ['pizza.avif', 'sushi.avif', 'cannolo-siciliano.avif'],
-//       currentSlide: 0,
-//       intervalId: null,
-//     };
-//   },
-//   methods: {
-//     nextSlide() {
-//       if (this.currentSlide === this.images.length - 1) {
-//         this.currentSlide = 0;
-//       } else {
-//         this.currentSlide++;
-//       }
-//     },
-//     prevSlide() {
-//       if (this.currentSlide === 0) {
-//         this.currentSlide = this.images.length - 1;
-//       } else {
-//         this.currentSlide--;
-//       }
-//     },
-//   },
-//   mounted() {
-//     this.intervalId = setInterval(() => {
-//       this.nextSlide();
-//     }, 4000);
-//   },
-//   beforeDestroy() {
-//     clearInterval(this.intervalId);
-//   },
-// };
-</script>
-
 <template>
-  <div class="my-jumbotron mb-5">
-    <h1 class="title">Benvenuto in fastbites!</h1>
-    <p class="subtitle fs-5 text-center">
-      Hai fame? Festeggia ogni boccone di felicità consegnato direttamente a
-      casa tua
-    </p>
-  </div>
-  <!-- <div class="my_jumbotron">
-    <div class="carousel">
-      <div class="carousel-inner">
-        <div
-          v-for="(image, index) in images"
-          :key="index"
-          class="carousel-item"
-          :class="{ active: index === currentSlide }"
-        >
-          <img v-bind:src="`/img/${image}`" alt="Slide" />
+    <main>
+        <div class="my-jumbotron d-flex align-items-center">
+            <div class="col mx-sm-5 text-center"> <!-- Added text-center class -->
+                <h1 class="title">Benvenuto in fastbites!</h1>
+                <p class="subtitle fs-5">
+                    Hai fame? Festeggia ogni boccone di felicità consegnato direttamente a casa tua
+                </p>
+                <a class="button-style-3" href="">Ordina ora</a>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="my_slogan">
-      <h1 class="title">DeliveBoo</h1>
-      <p class="subtitle fs-5">
-        Hai fame? Festeggia ogni boccone di felicità consegnato direttamente a
-        casa tua
-      </p>
-    </div>
-  </div> -->
+    </main>
 </template>
 
 <style lang="scss" scoped>
-@use '../assets/scss/partials/variables.scss' as *;
-@use '../../src/assets/scss/font.scss' as *;
-.my-jumbotron {
-  position: relative;
-  background-image: url('/img/jumbotron.png');
-  background-color: none;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 600px;
+    @use '../assets/scss/partials/variables.scss' as *;
+    @use '../../src/assets/scss/font.scss' as *;
 
-  .title {
-    font-family: 'Paytone One', sans-serif;
-    color: white;
-    font-size: 4rem;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+    .my-jumbotron {
+        height: 600px;
+        background-image: url('/img/jumbotron.png');
+        background-size: 100% auto;
+        background-position: center;
+        background-repeat: no-repeat;
 
-  .subtitle {
-    font-family: 'Open Sans', sans-serif;
-    color: white;
-    font-size: 1.5rem;
-    position: absolute;
-    top: 48%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+        .title {
+            font-family: 'Paytone One', sans-serif;
+            color: white;
+            font-size: 4rem;
+        }
 
-  @media (max-width: 768px) {
-    .title {
-      font-size: 3rem;
-      top: 20%;
+        .subtitle {
+            font-family: 'Open Sans', sans-serif;
+            color: white;
+            font-size: 1.5rem;
+        }
     }
 
-    .subtitle {
-      font-size: 1.2rem;
-      top: 15%;
-    }
-  }
-
-  @media (max-width: 576px) {
-    .title {
-      font-size: 2.5rem;
-      top: 6%; /* Adjusted for higher positioning */
+    @media (max-width: 767px) {
+        .my-jumbotron {
+            background-image: url('/img/jumbotron-mobile.png'); 
+            height: 700px; 
+		}
     }
 
-    .subtitle {
-      font-size: 1rem;
-      top: 12%; /* Adjusted for higher positioning */
+	.button-style-3 {
+        display: inline-block;
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+        border: 1px solid transparent;
+        padding: 8px 20px;
+        margin: 4px 10px;
+        cursor: pointer;
+        border-radius: 24px;
+        background-color: white;
+        transition:
+            background-color 0.3s ease,
+            border-color 0.3s ease;
     }
-  }
-}
 
-// .my_jumbotron {
-//   position: relative;
+    .button-style-3:hover {
+        color: white;
+        background-color: transparent;
+        border: 1px solid white;
+    }
 
-//   .carousel {
-//     .carousel-inner {
-//       position: relative;
-//       width: 100%;
-//       height: 600px;
-//     }
-
-//     .carousel-item {
-//       position: absolute;
-//       z-index: auto;
-//       width: 100%;
-//       height: 100%;
-//       opacity: 0;
-//       transition: opacity 1s ease-out;
-
-//       &.active {
-//         opacity: 1;
-//       }
-//     }
-//     .carousel-item img {
-//       width: 100%;
-//       height: 100%;
-//       object-fit: cover;
-//     }
-//   }
-
-//   .carousel-control-prev {
-//     left: 10px;
-//   }
-
-//   .carousel-control-next {
-//     right: 10px;
-//   }
-
-//   .my_slogan {
-//     position: absolute;
-//     top: 50%;
-//     left: 10%;
-//     width: 55%;
-//     padding: 20px;
-//     background-color: rgba(0, 0, 0, 0.45);
-//     color: white;
-//     .title {
-//       font-size: 4rem;
-//       font-family: 'Lora', sans-serif;
-//     }
-//     .subtitle {
-//       font-size: 1.5rem;
-//       font-family: 'Open Sans', sans-serif;
-//       font-weight: 100;
-//     }
-//   }
-//   .search-container {
-//     margin-top: 30px;
-//     display: flex;
-//     justify-content: center;
-
-//     .search .bar {
-//       width: 300px;
-//       margin-right: 20px;
-//     }
-//   }
-// }
+    .button-style-3 a {
+        text-decoration: none;
+    }
 </style>
