@@ -139,6 +139,4 @@ button {
   height: 24px;
   width: 24px;
 }
-.trash {
-}
 </style>
