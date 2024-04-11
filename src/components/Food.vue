@@ -60,8 +60,8 @@ export default {
       <a :href="`/food/${food.id}`" style="text-decoration: none">
         <img :src="food.img.startsWith('http') ? food.img : 'http://127.0.0.1:8000/storage/' + food.img" class="food-image" :alt="food.name" />
         <div class="card-body">
-          <h4 class="card-title food-name">{{ food.name }}</h4>
-          <h6 class="text-dark">{{ food.price }} €</h6>
+          <h4 class="card-title food-name my-3">{{ food.name }}</h4>
+          <h6 class="text-dark my-3">{{ food.price }} €</h6>
           <!-- <div class="input-wrapper my-4" v-if="currentQuantity">        
             <button @click="decrement()">-</button>
             <input
@@ -77,26 +77,26 @@ export default {
     </div>
     <div class="d-flex justify-content-center" v-if="food.availability === 1">
       <button
-        class="button-style-4-cart text-button"
+        class="button-style-4-cart text-button mt-2"
         @click.stop="addToCart"
         :disabled="!this.canAddToCart"
       >
         Aggiungi
       </button>
     </div>
-    <div
-      class="badge py-1 px-3"
-      :class="food.availability === 1 ? 'bg-success' : 'bg-danger'"
-    >
-      {{ food.availability === 1 ? '' : 'Non disponibile' }}
-    </div>
+    <div v-if="food.availability !== 1" class="d-flex align-items-center justify-content-center badge-pill-wrapper">
+      <div class="badge-pill-1">
+        Non disponibile
+      </div>
+</div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .food-card {
-  background-color: rgba(255, 255, 255, 0.7);
-  box-shadow: 0px 0px 10px rgb(108, 108, 108);
+  box-shadow: 0px 0px 5px rgb(214, 214, 214);
+  background-color: rgba(255, 255, 255, 0.6);
+  border: none;
   border-radius: 20px;
   margin: 10px;
   padding: 20px;
@@ -132,6 +132,28 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  
+}
+
+.badge-pill-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px; 
+}
+
+.badge-pill-1 {
+  font-size: 15px;
+  cursor: pointer;
+  font-family: 'Open Sans', 'sans-serif';
+  background-color: #BC3431;
+  color: rgb(255, 255, 255);
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 25px;
+  font-size: 16px;
+  width: 150px;
 }
 
 .pill-input {
@@ -139,6 +161,7 @@ export default {
   padding: 5px 10px;
   width: 50px;
   text-align: center;
+  
 }
 
 button {
