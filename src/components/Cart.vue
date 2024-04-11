@@ -1,14 +1,11 @@
 <script>
 import CartItem from './CartItem.vue';
-import { store } from '../store/store.js';
 export default {
   components: {
     CartItem,
   },
   data() {
-    return {
-      store,
-    };
+    return {};
   },
   computed: {
     getCart() {

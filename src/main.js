@@ -14,12 +14,19 @@ import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { faBurger } from '@fortawesome/free-solid-svg-icons';
 import { faTruckFast } from '@fortawesome/free-solid-svg-icons';
 import { faSeedling } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faCartShopping, faTrashCan, faBurger, faTruckFast, faSeedling);
+library.add(
+  faCartShopping,
+  faTrashCan,
+  faBurger,
+  faTruckFast,
+  faSeedling,
+  faArrowRight
+);
 
 createApp(App)
   .use(router)
   .use(store)
-  .use(Vuex)
-  /* .component('font-awesome-icon', FontAwesomeIcon) */
+  .component('font-awesome-icon', FontAwesomeIcon)
   .mount('#app');

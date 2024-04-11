@@ -1,6 +1,5 @@
 <script>
 export default {
-  data() {},
   props: {
     cartItem: Object,
   },
@@ -87,7 +86,7 @@ export default {
 }
 
 .food-count {
-  color: #BC3431;
+  color: #bc3431;
   font-weight: bold;
   font-size: 16px;
   font-family: 'Open Sans', 'sans-serif';
@@ -148,9 +147,9 @@ button {
 }
 
 button:hover {
-  color: #BC3431;
+  color: #bc3431;
   background-color: transparent;
-  border: 1px solid #BC3431;
+  border: 1px solid #bc3431;
 }
 
 .text-button {
@@ -158,5 +157,4 @@ button:hover {
   height: 24px;
   width: 24px;
 }
-
 </style>

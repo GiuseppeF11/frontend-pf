@@ -1,9 +1,6 @@
 import { createStore } from 'vuex';
 import VuexPersist from 'vuex-persist';
 
-
-
-
 const vuexLocalStorage = new VuexPersist({
   key: 'fastbites', // The key to store the state on in the storage provider.
   storage: window.localStorage, // or window.sessionStorage or localForage
@@ -54,6 +51,7 @@ export default createStore({
       state.showCart = val;
     },
   },
+
   actions: {},
   getters: {
     getRestaurant(state) {
