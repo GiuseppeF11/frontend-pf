@@ -67,17 +67,15 @@ export default {
       <h4 class="total">Totale: € {{ totalPrice }}</h4>
 
       <div class="my-checkout my-5 d-flex justify-content-center">
-          <router-link class="checkout-button mb-3"
-              :to="{ name: 'credentials' }">
-              Check Out <font-awesome-icon icon="fa-solid fa-arrow-right pl-2" />
-          </router-link>
-        </div>
+        <router-link class="checkout-button mb-3" :to="{ name: 'credentials' }">
+          Check Out <font-awesome-icon icon="fa-solid fa-arrow-right pl-2" />
+        </router-link>
+      </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-
 .button-cart {
   margin: 0 15px;
   border-radius: 50%;
@@ -94,23 +92,23 @@ export default {
   }
 }
 .title-cart {
-	font-family: 'Paytone One', sans-serif;
-	color: #BC3431;
+  font-family: 'Paytone One', sans-serif;
+  color: #bc3431;
   font-size: 24px;
-	margin-bottom: 0;
-	line-height: 1.5;
+  margin-bottom: 0;
+  line-height: 1.5;
 }
 
 h4 {
   font-family: 'Paytone One', sans-serif;
-	color: #BC3431;
+  color: #bc3431;
   font-size: 24px;
-	margin-bottom: 0;
-	line-height: 1.5;
+  margin-bottom: 0;
+  line-height: 1.5;
 }
 
 hr {
-	color: #BC3431;
+  color: #bc3431;
 }
 
 .button-close {
@@ -133,29 +131,29 @@ button {
 }
 
 button:focus,
-    button:active {
-    outline: none;
-    box-shadow: none;
+button:active {
+  outline: none;
+  box-shadow: none;
 }
 
 .checkout-button {
   display: inline-block;
   text-decoration: none;
-  color:white;
+  color: white;
   border: 1px solid transparent;
   padding: 8px 20px;
   margin: 4px 10px;
   cursor: pointer;
   border-radius: 24px;
-  background-color: #BC3431;
+  background-color: #bc3431;
   transition:
     background-color 0.3s ease,
     border-color 0.3s ease;
 }
 .checkout-button:hover {
-  color: #BC3431;
+  color: #bc3431;
   background-color: transparent;
-  border: 1px solid #BC3431;
+  border: 1px solid #bc3431;
 }
 
 .button-style-3 a {
