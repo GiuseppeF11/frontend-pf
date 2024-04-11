@@ -4,7 +4,7 @@ import Food from '../components/Food.vue';
 export default {
   data() {
     return {
-      restaurant: {},
+      restaurant: { foods: [] }, // Inizializza restaurant.foods come un array vuoto
       searchTerm: '',
     };
   },
@@ -52,10 +52,14 @@ export default {
       </div>
     </div>
     <div class="row justify-content-center">
-      <Food v-for="food in filteredFoods" :key="food.id" :food="food" />
+      <div v-if="filteredFoods.length === 0" class="allert-subtitle text-center mt-3 mb-5">
+        <p>Nessun cibo presente</p>
+      </div>
+        <Food v-else v-for="food in filteredFoods" :key="food.id" :food="food" />
     </div>
   </main>
 </template>
+
 
 <style lang="scss" scoped>
 .title {
@@ -84,5 +88,13 @@ export default {
 }
 .text-input {
   font-family: 'Open Sans', sans-serif;
+}
+
+.allert-subtitle {
+  font-family: 'Open Sans', 'sans-serif';
+  font-size: 1.2rem;
+  color: white;
+  text-align: center;
+  font-style: italic;
 }
 </style>

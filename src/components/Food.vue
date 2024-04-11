@@ -58,7 +58,7 @@ export default {
   <div class="food-card col-md-8 mt-4">
     <div>
       <a :href="`/food/${food.id}`" style="text-decoration: none">
-        <img :src="food.img" class="food-image" alt="Immagine cibo" />
+        <img :src="food.img.startsWith('http') ? food.img : 'http://127.0.0.1:8000/storage/' + food.img" class="food-image" :alt="food.name" />
         <div class="card-body">
           <h4 class="card-title food-name">{{ food.name }}</h4>
           <h6 class="text-dark">{{ food.price }} €</h6>

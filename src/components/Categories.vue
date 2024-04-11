@@ -182,7 +182,7 @@ export default {
           >
             <div class="card-content d-flex align-items-center flex-column">
               <img
-                :src="restaurant.img"
+                :src="restaurant.img.startsWith('http') ? restaurant.img : 'http://127.0.0.1:8000/storage/' + restaurant.img" :alt="restaurant.name"
                 class="category-image"
                 alt="Immagine ristorante"
               />

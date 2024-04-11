@@ -2,10 +2,12 @@
 import axios from 'axios';
 export default {
   data() {
-    return {
-      food: {},
-    };
-  },
+  return {
+    food: {
+      img: '' // Inizializza img come stringa vuota
+    },
+  };
+},
   mounted() {
     if (this.$route.params.foodId) {
       axios
@@ -34,7 +36,7 @@ export default {
         </h1>
         <div class="col-auto p-0 m-2 frame">
           <div class="img-container">
-            <img :src="food.img" :alt="food.name">
+            <img :src="food.img.startsWith('http') ? food.img : 'http://127.0.0.1:8000/storage/' + food.img" :alt="food.name" />
           </div>
         </div>
         <div class="col m-2 frame">
