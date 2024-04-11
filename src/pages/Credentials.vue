@@ -72,9 +72,9 @@ export default {
     },
     async sendOrderData(paymentNonce) {
       try {
-        debugger;
+        
         const cart = this.$store.getters.getCart;
-        const response = await axios.post(`http://127.0.0.1:8000/api/orders`, {
+        const response = await axios.post(`http://127.0.0.1:8000/api/endpoint`, {
           name: this.order.name,
           email: this.order.email,
           address: this.order.address,
