@@ -8,93 +8,76 @@ export default {
 </script>
 
 <template>
-  <footer class="footer mt-5">
-    <div class="container">
-      <div class="row d-flex" style="">
-        <strong>© FastBites • <a href="#" class="text-dark"> Cookie & Privacy Policy</a> • Developed by Team 4</strong>
-      </div>
-      <div class="icons">
-          <i class="fa-brands fa-twitter"></i> <i class="fa-brands fa-linkedin"></i> <i class="fa-brands fa-youtube"></i> <i class="fa-brands fa-instagram"></i> <i class="fa-brands fa-pinterest"></i>
+    <footer class="py-5">
+        <div class="container d-flex align-items-center py-5">
+            <div class="logo-container">
+                <img class="logo" src="/public/img/logo.png" alt="logo">
+            </div>
+            <div class="container ps-5">
+                <div class="text-footer mb-4">
+                    <strong>© FastBites • <a href="#" class="text-footer"> Cookie & Privacy Policy</a> • Developed by Team 4</strong>
+                </div>
+                <div class="icons d-flex">
+                    <i class="fa-brands fa-twitter mx-2"></i> 
+                    <i class="fa-brands fa-linkedin mx-2"></i> 
+                    <i class="fa-brands fa-youtube mx-2"></i> 
+                    <i class="fa-brands fa-instagram mx-2"></i> 
+                    <i class="fa-brands fa-pinterest mx-2"></i>
+                </div>
+            </div>
         </div>
-          <div class="final-logo">
-          <img class="last-logo" src="/public/img/logo.svg" alt="logo">
-        </div>
-    </div>
-  </footer>
+    </footer>
 </template>
 
-
 <style lang="scss" scoped>
-  .footer {
-	background-color: #F6901E;
-	padding: 50px 0;
-	width: 100%;
-  height: 100px;
-  }
-  
-  .final-logo {
-    padding-left: 170px;
-  }
 
-  .last-logo {
-    width: 100px;
-    border-bottom: 100px;
-  }
+footer {
+  background-color: #F6901E;
+  width: 100%;
+  padding: 60px 0;
+  bottom: 0; 
+}
 
-  .icons {
-    width: 200px;
-  }
+.text-footer {
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+  font-size: 0.9rem;
+}
 
-  i:hover {
-    background-color: #F6901E;
-    color: white;
-    transition-duration: 0.5s;
-  }
+.logo-container {
+  width: 120px;
+  height: 120px;
+  display: flex; 
+  align-items: center; 
+}
 
-  i {
-    border-radius: 100%;
-    background-color: white;
-    width: 30px;
-    height: 30px;
-    padding: 7px;
-    border: 1px solid white;
-    color: #F6901E;
-  }
+.logo {
+  width: 100%;
+}
 
-  .footer h5 {
-	font-size: 18px;
-	font-weight: 700;
-	margin-bottom: 20px;
-  }
-  
-  .footer ul li {
-	margin-bottom: 10px;
-  }
-  
-  .footer ul li a {
-	color: #333;
-	text-decoration: none;
-  }
-  
-  .footer ul li a:hover {
-	color: white;
-	text-decoration: none;
-  }
-  
-  .footer-logo {
-	max-width: 100%;
-	height: auto;
-  }
-  
-  img {
-	width: 150px;
-  }
+.icons {
+  width: 60px;
+  display: flex;
+  align-items: center;
+}
 
-  .container {
-    display: flex;
-  }
+.icons i {
+  border-radius: 25%;
+  background-color: white;
+  width: 60px;
+  height: 50px;
+  padding: 16px; 
+  border: 1px solid white;
+  color: #F6901E;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.5s, color 0.5s;
+}
 
-  .row {
-    width: 60%;
-  }
+.icons i:hover {
+  background-color: #F6901E;
+  color: white;
+}
+
 </style>

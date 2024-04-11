@@ -36,11 +36,11 @@ export default {
 </script>
 
 <template>
-  <main class="py-5">
+  <main class="py-5 container">
     <h1 class="title mt-4">{{ this.restaurant.name }}</h1>
     <h2 class="subtitle text-center mb-4">Menù</h2>
     <div class="row justify-content-center">
-      <div class="col-md-4">
+      <div class="col-md-6 col-8">
         <div class="input-group mb-4">
           <input
             type="text"
@@ -55,7 +55,7 @@ export default {
       <div v-if="filteredFoods.length === 0" class="allert-subtitle text-center mt-3 mb-5">
         <p>Nessun cibo presente</p>
       </div>
-        <Food v-else v-for="food in filteredFoods" :key="food.id" :food="food" />
+        <Food v-else v-for="food in filteredFoods" :key="food.id" :food="food"/>
     </div>
   </main>
 </template>

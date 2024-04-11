@@ -92,6 +92,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+
 .food-card {
   box-shadow: 0px 0px 5px rgb(214, 214, 214);
   background-color: rgba(255, 255, 255, 0.6);
