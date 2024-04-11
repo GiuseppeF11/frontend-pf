@@ -1,5 +1,5 @@
 <template>
-  <main class="my-4">
+  <main class="my-2">
     <div class="row text-center">
       <div class="col-12 col-md m-4">
         <i class="fa-solid fa-burger font"> </i>
@@ -49,5 +49,10 @@
 
 i {
   color: white;
+  cursor: pointer;
+  transition: 0.2s;
+  &:hover {
+    transform: scale(1.09);
+  }
 }
 </style>

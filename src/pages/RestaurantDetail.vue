@@ -36,7 +36,7 @@ export default {
 </script>
 
 <template>
-  <main>
+  <main class="py-5">
     <h1 class="title mt-4">{{ this.restaurant.name }}</h1>
     <h2 class="subtitle text-center mb-4">Menù</h2>
     <div class="row justify-content-center">
@@ -80,6 +80,8 @@ export default {
   border-radius: 25px;
   outline: none !important;
   box-shadow: none !important;
+  padding-left: 20px;
+  border: none !important;
 }
 
 .input-group.my-4 {

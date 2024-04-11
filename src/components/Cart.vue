@@ -1,11 +1,14 @@
 <script>
 import CartItem from './CartItem.vue';
+import { store } from '../store/store.js';
 export default {
   components: {
     CartItem,
   },
   data() {
-    return {};
+    return {
+      store,
+    };
   },
   computed: {
     getCart() {
@@ -76,6 +79,12 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+.offcanvas {
+  border: none !important;
+  box-shadow: none !important;
+  outline: 1px solid #bc3431;
+}
+
 .button-cart {
   margin: 0 15px;
   border-radius: 50%;
