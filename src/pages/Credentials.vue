@@ -2,8 +2,7 @@
 import { store } from '../store/store.js';
 import axios from 'axios';
 
-// Importa il client SDK di Braintree
-import braintree from 'braintree-web';
+
 
 export default {
     name: 'credentials',
