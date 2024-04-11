@@ -6,6 +6,7 @@ import FoodDetail from './pages/FoodDetail.vue';
 import Login  from './pages/Login.vue';
 import Register  from './pages/Register.vue';
 import Credentials from './pages/Credentials.vue';
+import PaymentPage from './pages/payment.vue';
 
 const router = createRouter({
 history: createWebHistory(),
@@ -40,11 +41,12 @@ routes: [
         name: 'credentials',
         component: Credentials,
         },
-        /* {
+        {
             path: '/payment',
             name: 'payment',
             component: PaymentPage,
         },
+        /*
         {
             path: '/confirmed',
             name: 'confirmed',
