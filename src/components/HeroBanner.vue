@@ -30,7 +30,7 @@ export default {
     @use '../../src/assets/scss/font.scss' as *;
 
     .my-jumbotron {
-        height: 600px;
+        height: 700px;
         background-image: url('/img/jumbotron.png');
         background-size: 100% auto;
         background-position: center;
@@ -52,7 +52,7 @@ export default {
     @media (max-width: 767px) {
         .my-jumbotron {
             background-image: url('/img/jumbotron-mobile.png'); 
-            height: 700px; 
+            height: 600px; 
 		}
     }
 
