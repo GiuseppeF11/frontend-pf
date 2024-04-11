@@ -1,6 +1,6 @@
 <template>
     <main>
-        <div class="container pt-5 d-flex">
+        <div class="container pt-5 d-flex mb-5">
             <div class="best-restaurant">
                 <h2 class="title pb-2 text-center">
                     I migliori ristoranti

@@ -1,7 +1,6 @@
 @use 'partials/variables.scss' as *;
 @use 'partials/mixins.scss' as *;
 
-// Import all of Bootstrap's CSS
 @import 'bootstrap/scss/bootstrap';
 
 body {
@@ -11,7 +10,7 @@ body {
     rgba(246, 144, 30, 1) 0%,
     rgba(204, 51, 51, 1) 75%
   );
-  min-height: 100vh;
+  min-height: 100vh; 
 }
 
 .row {
