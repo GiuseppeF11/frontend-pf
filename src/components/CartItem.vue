@@ -53,7 +53,7 @@ export default {
       </div>
       <div>
         <button class="trash" @click="removeFromCart(cartItem.food.id)">
-          <font-awesome-icon :icon="['fas', 'trash-can']" size="xs" />
+          <i class="fa-solid fa-trash-can"></i>
         </button>
       </div>
     </div>

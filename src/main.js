@@ -21,5 +21,5 @@ createApp(App)
   .use(router)
   .use(store)
   .use(Vuex)
-  .component('font-awesome-icon', FontAwesomeIcon)
+  /* .component('font-awesome-icon', FontAwesomeIcon) */
   .mount('#app');

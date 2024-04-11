@@ -1,4 +1,5 @@
 <script>
+import Cart from './Cart.vue';
 
 export default {
   data() {
@@ -7,6 +8,7 @@ export default {
     };
   },
   components: {
+    Cart,
   },
   mounted() {
     this.checkScreenSize();
@@ -26,7 +28,7 @@ export default {
 
 <template>
 	<header>
-	  <nav class="navbar">
+	  <nav class="navbar mt-5 mb-3">
 		<div class="container d-flex justify-content-between align-items-center">
 		  <div class="logo">
 			<router-link class="navbar-brand" to="/">
@@ -38,7 +40,8 @@ export default {
 			<!-- Visualizza in modo condizionale i collegamenti in base alle dimensioni dello schermo -->
 			<a v-if="!isSmallScreen" class="nav-link button-style-3" :href="`http://127.0.0.1:8000/login`">Sei gia un nostro partner?</a>
 			<a v-if="!isSmallScreen" class="nav-link button-style-3" :href="`http://127.0.0.1:8000/register`">Diventa un nostro partner!</a>
-	
+			<Cart/>
+        
 			<!-- Visualizza in modo condizionale l'hamburger menu -->
 			<button
 			  v-if="isSmallScreen"
@@ -90,7 +93,7 @@ export default {
 <style lang="scss" scoped>
 
 .logo {
-  width: 200px;
+  width: 250px;
 
   img {
     width: 100%;

@@ -111,11 +111,11 @@ export default {
 </script>
 
 <template>
-  <main>
+  <main id="categories-section">
     <div class="container">
       <div class="row text-center mx-lg-5">
         <div class="col-lg-12">
-          <h1 class="title pb-2">Categorie</h1>
+          <h1 class="title pb-3">Categorie</h1>
           <!--<p class="subtitle mb-5">
 						Se sei alla ricerca di un ristorante che soddisfi le tue preferenze e il tuo umore del momento, sei nel posto giusto! Con una vasta gamma di categorie tra cui scegliere, troverai sicuramente il posto perfetto per la tua prossima esperienza culinaria.
 					</p>-->
@@ -182,9 +182,8 @@ export default {
           >
             <div class="card-content d-flex align-items-center flex-column">
               <img
-                :src="restaurant.img"
+                :src="restaurant.img.startsWith('http') ? restaurant.img : 'http://127.0.0.1:8000/storage/' + restaurant.img" :alt="restaurant.name"
                 class="category-image"
-                alt="Immagine ristorante"
               />
               <div class="mt-n3">
                 <h5
@@ -201,7 +200,7 @@ export default {
           <a
             @click.prevent="loadMoreRestaurants"
             href="#"
-            class="button-style-3"
+            class="button-style-3 mt-4"
           >
             Carica Altri Ristoranti
           </a>
@@ -304,6 +303,7 @@ export default {
   outline: none !important;
   box-shadow: none !important;
   padding-left: 20px;
+  border: none !important;
 }
 
 .input-group.mb-4 {
@@ -321,6 +321,14 @@ export default {
 .card-link {
   a {
     text-decoration: none;
+  }
+}
+
+.category-card {
+  cursor: pointer;
+  transition: 0.2s;
+  &:hover {
+    transform: scale(1.09);
   }
 }
 

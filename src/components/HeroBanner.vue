@@ -1,3 +1,16 @@
+<script>
+export default {
+  methods: {
+    scrollToCategories() {
+      const categoriesSection = document.getElementById('categories-section');
+      if (categoriesSection) {
+        categoriesSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }
+}
+</script>
+
 <template>
     <main>
         <div class="my-jumbotron d-flex align-items-center mb-2">
@@ -6,7 +19,7 @@
                 <p class="subtitle fs-5">
                     Hai fame? Festeggia ogni boccone di felicità consegnato direttamente a casa tua
                 </p>
-                <a class="button-style-3" href="">Ordina ora</a>
+                <a class="button-style-3" href="#" @click="scrollToCategories">Ordina ora</a>
             </div>
         </div>
     </main>
@@ -17,7 +30,7 @@
     @use '../../src/assets/scss/font.scss' as *;
 
     .my-jumbotron {
-        height: 500px;
+        height: 600px;
         background-image: url('/img/jumbotron.png');
         background-size: 100% auto;
         background-position: center;

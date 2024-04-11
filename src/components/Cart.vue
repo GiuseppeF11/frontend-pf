@@ -35,7 +35,7 @@ export default {
 
 <template>
   <button class="button-cart" type="button" @click="showCart">
-    <font-awesome-icon :icon="['fas', 'cart-shopping']" />
+    <i class="fa-solid fa-cart-shopping"></i>
   </button>
   <div
     class="offcanvas offcanvas-end"
@@ -77,6 +77,12 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+
+.offcanvas {
+  border: none !important;
+    box-shadow: none !important;
+    outline: 1px solid #BC3431;
+}
 
 .button-cart {
   margin: 0 15px;
