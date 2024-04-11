@@ -184,7 +184,6 @@ export default {
               <img
                 :src="restaurant.img.startsWith('http') ? restaurant.img : 'http://127.0.0.1:8000/storage/' + restaurant.img" :alt="restaurant.name"
                 class="category-image"
-                alt="Immagine ristorante"
               />
               <div class="mt-n3">
                 <h5
