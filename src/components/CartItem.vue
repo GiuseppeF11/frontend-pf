@@ -41,17 +41,19 @@ export default {
 
 <template>
   <div class="container-orders">
-    <div class="container-single-order">
+    <div class="container-single-order d-flex">
       <div class="quantity">
-        <h4 class="food-name">{{ cartItem.count }} x</h4>
+        <h4 class="food-count">{{ cartItem.count }}x</h4>
       </div>
       <div class="name">
         <h4 class="food-name">{{ cartItem.food.name }}</h4>
       </div>
       <div class="total-price">
         <span class="price">{{ cartItem.food.price * currentQuantity }} €</span>
+      </div>
+      <div>
         <button class="trash" @click="removeFromCart(cartItem.food.id)">
-          <font-awesome-icon :icon="['fas', 'trash-can']" size="xs" />
+          <i class="fa-solid fa-trash-can"></i>
         </button>
       </div>
     </div>
@@ -75,7 +77,7 @@ export default {
 .container-single-order {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 15px;
+  // margin-bottom: 10px;
 }
 .quantity {
   max-width: 60px;
@@ -83,20 +85,27 @@ export default {
 .name {
   width: 220px;
 }
-.food-name {
-  color: #333;
+
+.food-count {
+  color: #BC3431;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
   font-family: 'Open Sans', 'sans-serif';
   margin-right: 10px;
 }
+
+.food-name {
+  color: #030000;
+  font-size: 16px;
+  font-family: 'Open Sans', 'sans-serif';
+}
 .total-price {
   min-width: 85px;
-  display: flex;
-  justify-content: space-between;
+  // display: flex;
+  // justify-content: space-between;
 }
 .price {
-  font-size: 15px;
+  font-size: 16px;
   font-family: 'Open Sans', 'sans-serif';
 }
 input::-webkit-outer-spin-button,
@@ -120,18 +129,28 @@ input[type='number'] {
 }
 
 button {
-  border-radius: 50%;
+  border-radius: 25%;
   background-color: rgba(246, 144, 30, 1);
   color: white;
   border: none;
+  padding: 15px;
   height: 24px;
   width: 24px;
+  margin: 5px;
   display: flex;
   justify-content: center;
+  border: 1px solid transparent;
   align-items: center;
-
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+button:hover {
+  color: #BC3431;
+  background-color: transparent;
+  border: 1px solid #BC3431;
 }
 
 .text-button {
@@ -139,4 +158,5 @@ button {
   height: 24px;
   width: 24px;
 }
+
 </style>

@@ -4,7 +4,7 @@ import Food from '../components/Food.vue';
 export default {
   data() {
     return {
-      restaurant: {},
+      restaurant: { foods: [] }, // Inizializza restaurant.foods come un array vuoto
       searchTerm: '',
     };
   },
@@ -36,7 +36,7 @@ export default {
 </script>
 
 <template>
-  <main>
+  <main class="py-5">
     <h1 class="title mt-4">{{ this.restaurant.name }}</h1>
     <h2 class="subtitle text-center mb-4">Menù</h2>
     <div class="row justify-content-center">
@@ -52,10 +52,14 @@ export default {
       </div>
     </div>
     <div class="row justify-content-center">
-      <Food v-for="food in filteredFoods" :key="food.id" :food="food" />
+      <div v-if="filteredFoods.length === 0" class="allert-subtitle text-center mt-3 mb-5">
+        <p>Nessun cibo presente</p>
+      </div>
+        <Food v-else v-for="food in filteredFoods" :key="food.id" :food="food" />
     </div>
   </main>
 </template>
+
 
 <style lang="scss" scoped>
 .title {
@@ -76,6 +80,8 @@ export default {
   border-radius: 25px;
   outline: none !important;
   box-shadow: none !important;
+  padding-left: 20px;
+  border: none !important;
 }
 
 .input-group.my-4 {
@@ -84,5 +90,13 @@ export default {
 }
 .text-input {
   font-family: 'Open Sans', sans-serif;
+}
+
+.allert-subtitle {
+  font-family: 'Open Sans', 'sans-serif';
+  font-size: 1.2rem;
+  color: white;
+  text-align: center;
+  font-style: italic;
 }
 </style>

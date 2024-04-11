@@ -27,6 +27,11 @@ routes: [
         component: RestaurantDetail,
         },
         {
+        path: '/food/:foodId',
+        name: 'Food',
+        component: FoodDetail,
+        },
+        {
         path: '/login',
         name: 'Login',
         component: Login,

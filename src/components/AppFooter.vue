@@ -10,51 +10,15 @@ export default {
 <template>
   <footer class="footer mt-5">
     <div class="container">
-      <div class="row d-flex">
-        <div class="col-md-3">
-          <h5>Scopri Fastbites</h5>
-          <ul class="list-unstyled">
-            <li><a href="#">Link 1</a></li>
-            <li><a href="#">Link 2</a></li>
-            <li><a href="#">Link 3</a></li>
-            <li><a href="#">Link 4</a></li>
-            <li><a href="#">Link 5</a></li>
-          </ul>
-        </div>
-
-        <div class="col-md-3">
-          <h5>Note Legali</h5>
-          <ul class="list-unstyled">
-            <li><a href="#">Link 1</a></li>
-            <li><a href="#">Link 2</a></li>
-            <li><a href="#">Link 3</a></li>
-            <li><a href="#">Link 4</a></li>
-            <li><a href="#">Link 5</a></li>
-          </ul>
-        </div>
-
-        <div class="col-md-3">
-          <h5>Aiuto</h5>
-          <ul class="list-unstyled">
-            <li><a href="#">Link 1</a></li>
-            <li><a href="#">Link 2</a></li>
-            <li><a href="#">Link 3</a></li>
-            <li><a href="#">Link 4</a></li>
-            <li><a href="#">Link 5</a></li>
-          </ul>
-        </div>
-
-        <div class="col-md-3">
-          <h5>Portaci con te</h5>
-          <ul class="list-unstyled">
-            <li><a href="#">Link 1</a></li>
-            <li><a href="#">Link 2</a></li>
-            <li><a href="#">Link 3</a></li>
-            <li><a href="#">Link 4</a></li>
-            <li><a href="#">Link 5</a></li>
-          </ul>
-        </div>
+      <div class="row d-flex" style="">
+        <strong>© FastBites • <a href="#" class="text-dark"> Cookie & Privacy Policy</a> • Developed by Team 4</strong>
       </div>
+      <div class="icons">
+          <i class="fa-brands fa-twitter"></i> <i class="fa-brands fa-linkedin"></i> <i class="fa-brands fa-youtube"></i> <i class="fa-brands fa-instagram"></i> <i class="fa-brands fa-pinterest"></i>
+        </div>
+          <div class="final-logo">
+          <img class="last-logo" src="/public/img/logo.svg" alt="logo">
+        </div>
     </div>
   </footer>
 </template>
@@ -65,8 +29,38 @@ export default {
 	background-color: #F6901E;
 	padding: 50px 0;
 	width: 100%;
+  height: 100px;
   }
   
+  .final-logo {
+    padding-left: 170px;
+  }
+
+  .last-logo {
+    width: 100px;
+    border-bottom: 100px;
+  }
+
+  .icons {
+    width: 200px;
+  }
+
+  i:hover {
+    background-color: #F6901E;
+    color: white;
+    transition-duration: 0.5s;
+  }
+
+  i {
+    border-radius: 100%;
+    background-color: white;
+    width: 30px;
+    height: 30px;
+    padding: 7px;
+    border: 1px solid white;
+    color: #F6901E;
+  }
+
   .footer h5 {
 	font-size: 18px;
 	font-weight: 700;
@@ -95,5 +89,12 @@ export default {
   img {
 	width: 150px;
   }
+
+  .container {
+    display: flex;
+  }
+
+  .row {
+    width: 60%;
+  }
 </style>
-  
