@@ -111,7 +111,7 @@ export default {
 </script>
 
 <template>
-  <main>
+  <main id="categories-section">
     <div class="container">
       <div class="row text-center mx-lg-5">
         <div class="col-lg-12">
