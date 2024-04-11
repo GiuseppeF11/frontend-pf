@@ -88,7 +88,7 @@ export default {
       class="badge py-1 px-3"
       :class="food.availability === 1 ? 'bg-success' : 'bg-danger'"
     >
-      {{ food.availability === 1 ? 'Disponibile' : 'Non disponibile' }}
+      {{ food.availability === 1 ? '' : 'Non disponibile' }}
     </div>
   </div>
 </template>
