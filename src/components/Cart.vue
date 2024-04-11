@@ -78,6 +78,12 @@ export default {
 
 <style lang="scss" scoped>
 
+.offcanvas {
+  border: none !important;
+    box-shadow: none !important;
+    outline: 1px solid #BC3431;
+}
+
 .button-cart {
   margin: 0 15px;
   border-radius: 50%;
