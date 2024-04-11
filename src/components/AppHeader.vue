@@ -28,7 +28,7 @@ export default {
 
 <template>
 	<header>
-	  <nav class="navbar">
+	  <nav class="navbar mt-5 mb-3">
 		<div class="container d-flex justify-content-between align-items-center">
 		  <div class="logo">
 			<router-link class="navbar-brand" to="/">

@@ -17,7 +17,7 @@
     @use '../../src/assets/scss/font.scss' as *;
 
     .my-jumbotron {
-        height: 500px;
+        height: 600px;
         background-image: url('/img/jumbotron.png');
         background-size: 100% auto;
         background-position: center;
