@@ -72,27 +72,29 @@ export default {
     },
     async sendOrderData(paymentNonce) {
       try {
-        
         const cart = this.$store.getters.getCart;
-        const response = await axios.post(`http://127.0.0.1:8000/api/endpoint`, {
-          name: this.order.name,
-          email: this.order.email,
-          address: this.order.address,
-          phone: this.order.phoneNum,
-          paymentNonce: paymentNonce,
-          restaurantId: cart[0].food.restaurant_id,
-          cartItems: cart.reduce((items, item) => {
-            items.push({
-              id: item.food.id,
-              price: item.food.price,
-              quantity: item.count,
-            });
-            return items;
-          }, []),
-          total: cart.reduce((tot, item) => {
-            return (tot += item.food.price * item.count);
-          }, 0),
-        });
+        const response = await axios.post(
+          `http://127.0.0.1:8000/api/endpoint`,
+          {
+            name: this.order.name,
+            email: this.order.email,
+            address: this.order.address,
+            phone: this.order.phoneNum,
+            paymentNonce: paymentNonce,
+            restaurantId: cart[0].food.restaurant_id,
+            cartItems: cart.reduce((items, item) => {
+              items.push({
+                id: item.food.id,
+                price: item.food.price,
+                quantity: item.count,
+              });
+              return items;
+            }, []),
+            total: cart.reduce((tot, item) => {
+              return (tot += item.food.price * item.count);
+            }, 0),
+          }
+        );
         console.log("Dati dell'ordine inviati con successo:", response.data);
       } catch (error) {
         console.error("Errore durante l'invio dei dati dell'ordine:", error);
@@ -133,7 +135,7 @@ export default {
         />
       </div>
       <div class="mb-3">
-        <label for="number" class="form-label">number telefon</label>
+        <label for="number" class="form-label">Telephone Number</label>
         <input
           v-model="order.phoneNum"
           type="number"
