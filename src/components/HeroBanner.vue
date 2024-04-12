@@ -1,7 +1,8 @@
 <script>
 export default {
   methods: {
-    scrollToCategories() {
+    scrollToCategories(event) {
+      event.preventDefault(); // Impedisce al link di eseguire la sua azione predefinita
       const categoriesSection = document.getElementById('categories-section');
       if (categoriesSection) {
         categoriesSection.scrollIntoView({ behavior: 'smooth' });
@@ -10,6 +11,7 @@ export default {
   }
 }
 </script>
+
 
 <template>
     <main>
@@ -40,10 +42,12 @@ export default {
             font-family: 'Paytone One', sans-serif;
             color: white;
             font-size: 4rem;
+            text-shadow: 10px 5px 5px black;
         }
 
         .subtitle {
             font-family: 'Open Sans', sans-serif;
+            text-shadow: 10px 5px 4px black;
             color: white;
             font-size: 1.5rem;
         }
@@ -57,6 +61,7 @@ export default {
     }
 
 	.button-style-3 {
+        box-shadow: 0px 0px 5px black;
         display: inline-block;
         text-decoration: none;
         color: rgb(0, 0, 0);
@@ -66,6 +71,7 @@ export default {
         cursor: pointer;
         border-radius: 24px;
         background-color: white;
+        animation: bounce .3s infinite alternate;
         transition:
             background-color 0.3s ease,
             border-color 0.3s ease;
@@ -75,6 +81,10 @@ export default {
         color: white;
         background-color: transparent;
         border: 1px solid white;
+    }
+
+    @keyframes bounce {
+        to { transform: scale(1.1); }
     }
 
     .button-style-3 a {

@@ -83,6 +83,7 @@ export default {
 }
 
 .button-cart {
+  box-shadow: 0px 0px 5px black;
   margin: 0 15px;
   border-radius: 50%;
   background-color: rgb(243, 243, 243);

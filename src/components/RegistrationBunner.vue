@@ -14,7 +14,7 @@
 				Unisciti a Fastbites oggi stesso e fatti conoscere dalla nostra
 				community appassionata di buon cibo!
 				</p>
-				<a class="button-style-4 text-button mb-4" :href="`http://127.0.0.1:8000/`">
+				<a class="button-style-4 text-button mb-4" :href="`http://127.0.0.1:8000/register`">
 				Registrati
 				</a>
 			</div>
@@ -57,6 +57,7 @@
 	  transition: background-color 0.3s ease;
 	  border: none;
 	  background-color: rgba(246, 144, 30, 1);
+	  box-shadow: 0px 0px 5px white;
   
 	  &:hover {
 		background-color: #ffffff;
@@ -67,6 +68,10 @@
 	.image img {
 	  max-width: 100%;
 	  height: auto;
+	}
+
+	img {
+		border-radius: 10%;
 	}
   
   </style>

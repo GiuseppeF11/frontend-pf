@@ -105,6 +105,7 @@ export default {
 }
 
 .button-style-3 {
+  box-shadow: 0px 0px 5px black;
   display: inline-block;
   text-decoration: none;
   color: rgb(0, 0, 0);

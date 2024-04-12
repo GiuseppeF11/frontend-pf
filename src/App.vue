@@ -54,6 +54,7 @@ export default {
   width: 50px;
   font-size: 16px;
   transition: 0.2s ease-in;
+  box-shadow: 0px 0px 5px black;
 
   &:hover {
         color: white;
@@ -66,6 +67,7 @@ export default {
   position: fixed;
   bottom: 20px;
   right: 20px;
+  display: flex;
 }
 
 

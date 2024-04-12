@@ -147,7 +147,7 @@ export default {
     </div>
 
     <div class="container mb-5 pb-5">
-      <h2 class="secondary-title">Lista dei ristoranti</h2>
+      <h2 class="secondary-title ">Trova i tuoi ristoranti preferiti!</h2>
       <div class="row justify-content-center">
         <div class="col-md-6">
           <div class="input-group my-2">
@@ -202,7 +202,7 @@ export default {
             href="#"
             class="button-style-3 mt-4"
           >
-            Carica Altri Ristoranti
+            Mostra di più
           </a>
         </div>
 
@@ -212,7 +212,7 @@ export default {
             href="#"
             class="button-style-3"
           >
-            Vedi Meno
+            Mostra meno
           </a>
         </div>
       </div>
@@ -227,14 +227,16 @@ export default {
   color: white;
   text-align: center;
   margin: 30px;
+  text-shadow: 10px 5px 5px black;
 }
 
 .secondary-title {
-  font-family: 'Open Sans', 'sans-serif';
+  font-family: 'Paytone One', sans-serif;
   font-size: 1.8rem;
   color: white;
   text-align: center;
   margin: 30px;
+  text-shadow: 10px 5px 5px black;
 }
 
 .allert-subtitle {
@@ -255,6 +257,7 @@ export default {
   border-radius: 25%;
   margin: 0 auto 10px;
   object-fit: cover;
+  box-shadow: 0px 0px 20px black;
 }
 
 .card-body {
@@ -262,6 +265,7 @@ export default {
 }
 
 .category-pill {
+  box-shadow: 0px 0px 5px white;
   cursor: pointer;
   border: 1px solid transparent;
   font-family: 'Open Sans', 'sans-serif';
@@ -367,6 +371,7 @@ export default {
 }
 
 .button-style-3 {
+  box-shadow: 0px 0px 5px white;
   display: inline-block;
   text-decoration: none;
   color: rgb(255, 255, 255);

@@ -8,7 +8,7 @@ export default {
 </script>
 
 <template>
-    <footer class="py-5">
+    <footer class="py-1">
         <div class="container d-flex align-items-center py-5">
             <div class="logo-container">
                 <img class="logo" src="/public/img/logo.png" alt="logo">
@@ -73,6 +73,7 @@ footer {
   justify-content: center;
   align-items: center;
   transition: background-color 0.5s, color 0.5s;
+  cursor: pointer;
 }
 
 .icons i:hover {
