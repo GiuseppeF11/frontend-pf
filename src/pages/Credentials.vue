@@ -45,10 +45,20 @@ export default {
       }
     });
   },
+  computed: {
+    cartItems() {
+      return this.$store.getters.getCart;
+    },
+    totalPrice() {
+      let total = 0;
+      for (let item of this.cartItems) {
+        total += item.food.price * item.count;
+      }
+      return total.toFixed(2);
+    },
+  },
   methods: {
     async sendOrder() {
-      // Verifica se tutti i campi sono stati compilati
-
       if (
         this.order.name &&
         this.order.email &&
@@ -56,7 +66,6 @@ export default {
         this.order.phoneNum
       ) {
         if (this.instance) {
-          // Controllo se l'istanza è stata inizializzata
           this.instance.requestPaymentMethod(async (err, payload) => {
             if (err) {
               console.error(err);
@@ -106,50 +115,116 @@ export default {
 
 <template>
   <div class="container">
-    <form @submit.prevent="sendOrder" method="POST">
-      <div class="mb-3">
-        <label for="name" class="form-label">Name</label>
-        <input
-          v-model="order.name"
-          type="name"
-          class="form-control"
-          id="name"
-        />
+    <div class="row">
+      <div class="col-md-6">
+        <form @submit.prevent="sendOrder" method="POST">
+          <div class="mb-3">
+            <label for="name" class="form-label form-text">Nome</label>
+            <input
+              v-model="order.name"
+              type="text"
+              class="form-control"
+              id="name"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label form-text">Email</label>
+            <input
+              v-model="order.email"
+              type="email"
+              class="form-control"
+              id="email"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="address" class="form-label form-text">Indirizzo</label>
+            <input
+              v-model="order.address"
+              type="text"
+              class="form-control"
+              id="address"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="phone" class="form-label form-text"
+              >Numero di telefono</label
+            >
+            <input
+              v-model="order.phoneNum"
+              type="tel"
+              class="form-control"
+              id="phone"
+              required
+            />
+          </div>
+
+          <div id="dropin-container"></div>
+          <div id="dropin-container"></div>
+          <button id="submit-button" class="button form-text">
+            Procedi al pagamento
+          </button>
+        </form>
       </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">Email </label>
-        <input
-          v-model="order.email"
-          type="email"
-          class="form-control"
-          id="email"
-        />
+
+      <div class="col-md-6">
+        <div class="card mb-3">
+          <div class="card-header title-text">Carrello</div>
+          <div class="card-body">
+            <div v-for="item in cartItems" :key="item.food.id">
+              <p class="form-text">
+                {{ item.food.name }} = {{ item.food.price }} € x
+                {{ item.count }}
+              </p>
+            </div>
+            <hr />
+            <p class="total">
+              Totale: <span class="price">{{ totalPrice }} €</span>
+            </p>
+          </div>
+        </div>
       </div>
-      <div class="mb-3">
-        <label for="address" class="form-label">Address</label>
-        <input
-          v-model="order.address"
-          type="address"
-          class="form-control"
-          id="address"
-        />
-      </div>
-      <div class="mb-3">
-        <label for="number" class="form-label">Telephone Number</label>
-        <input
-          v-model="order.phoneNum"
-          type="number"
-          class="form-control"
-          id="number"
-        />
-      </div>
-      <div id="dropin-container"></div>
-      <button id="submit-button" class="button">Procedi al pagamento</button>
-    </form>
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
+.form-text {
+  font-family: 'Open Sans', 'sans-serif';
+  font-size: 1rem;
+  color: black;
+}
+.card {
+  width: 100%;
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+.card-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+.title-text {
+  font-family: 'Paytone One', sans-serif;
+  color: #bc3431;
+  font-size: 2rem;
+}
+
+.card-body {
+  padding: 1rem;
+}
+.total {
+  font-family: 'Paytone One', sans-serif;
+  color: #bc3431;
+  font-size: 1rem;
+  .price {
+    font-family: 'Open Sans', 'sans-serif';
+    color: black;
+  }
+}
+
 .button {
   cursor: pointer;
   display: inline-block;
