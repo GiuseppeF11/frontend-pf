@@ -248,5 +248,6 @@ body {
   color: white;
   font-size: 14px;
   margin-top: 10px;
+  font-family: 'Open Sans', 'sans-serif';
 }
 </style>
