@@ -1,5 +1,11 @@
 <script>
 export default {
+  data() {
+    return {
+      showErrorMessage: false,
+      errorMessageTimeout: null,
+    };
+  },
   props: {
     food: Object,
   },
@@ -23,6 +29,18 @@ export default {
       this.$store.commit('toggleCart', true);
     },
     addToCart(food) {
+      if (this.$store.getters.getCart.length > 0) {
+        if (
+          this.$store.getters.getCart[0].food.restaurant_id !==
+          this.food.restaurant_id
+        ) {
+          this.showErrorMessage = true;
+          setTimeout(() => {
+            this.showErrorMessage = false;
+          }, 4000);
+          return;
+        }
+      }
       if (this.canAddToCart) {
         this.$store.commit('setQuantityCart', {
           count: !this.currentQuantity
@@ -77,10 +95,10 @@ export default {
       <button
         class="button-style-4-cart text-button mt-2"
         @click.stop="addToCart"
-        :disabled="!this.canAddToCart"
       >
         Aggiungi
       </button>
+      <!--   :disabled="!this.canAddToCart" -->
     </div>
     <div
       v-if="food.availability !== 1"
@@ -88,11 +106,13 @@ export default {
     >
       <div class="badge-pill-1">Non disponibile</div>
     </div>
+    <div v-if="showErrorMessage" class="error-message">
+      Non puoi ordinare da ristoranti diversi.
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-
 .food-card {
   box-shadow: 0px 0px 5px rgb(214, 214, 214);
   background-color: rgba(255, 255, 255, 0.6);
@@ -219,5 +239,14 @@ body {
     background: #ccc;
     color: #333;
   }
+}
+.error-message {
+  border: 2px solid #bc3431;
+  background-color: #bc3431;
+  border-radius: 30px;
+  padding: 10px;
+  color: white;
+  font-size: 14px;
+  margin-top: 10px;
 }
 </style>
