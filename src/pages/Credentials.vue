@@ -144,12 +144,7 @@ export default {
         />
       </div>
       <div id="dropin-container"></div>
-      <button id="submit-button" class="button button--small button--green">
-        Purchase
-      </button>
-      <button type="submit" class="btn btn-primary">
-        Procedi al pagamento
-      </button>
+      <button id="submit-button" class="button">Procedi al pagamento</button>
     </form>
   </div>
 </template>
@@ -157,35 +152,23 @@ export default {
 <style lang="scss" scoped>
 .button {
   cursor: pointer;
-  font-weight: 500;
-  left: 3px;
-  line-height: inherit;
-  position: relative;
-  text-decoration: none;
-  text-align: center;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 3px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   display: inline-block;
-}
-
-.button--small {
-  padding: 10px 20px;
-  font-size: 0.875rem;
-}
-
-.button--green {
-  outline: none;
-  background-color: #64d18a;
-  border-color: #64d18a;
+  text-decoration: none;
   color: white;
-  transition: all 200ms ease;
+  border: 1px solid transparent;
+  padding: 8px 20px;
+  margin: 4px 10px;
+  cursor: pointer;
+  border-radius: 24px;
+  background-color: rgba(246, 144, 30, 1);
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+  margin-bottom: 50px;
 }
-
-.button--green:hover {
-  background-color: #8bdda8;
-  color: white;
+.button:hover {
+  color: rgba(246, 144, 30, 1);
+  background-color: transparent;
+  border: 1px solid rgba(246, 144, 30, 1);
 }
 </style>
