@@ -29,6 +29,9 @@ export default {
     showCart() {
       this.$store.commit('toggleCart', true);
     },
+    checkoutClicked() {
+      this.hideCart();
+    },
   },
 };
 </script>
@@ -67,7 +70,11 @@ export default {
       <h4 class="total">Totale: € {{ totalPrice }}</h4>
 
       <div class="my-checkout my-5 d-flex justify-content-center">
-        <router-link class="checkout-button mb-3" :to="{ name: 'credentials' }">
+        <router-link
+          class="checkout-button mb-3"
+          :to="{ name: 'credentials' }"
+          @click="checkoutClicked"
+        >
           Check Out <font-awesome-icon icon="fa-solid fa-arrow-right pl-2" />
         </router-link>
       </div>
