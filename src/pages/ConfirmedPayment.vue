@@ -12,12 +12,14 @@ export default {
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <div class="confirmation-message">
-          <h1>Pagamento confermato</h1>
-          <p>
-            Grazie per il tuo ordine! Il tuo pagamento è stato confermato e
-            l'ordine è stato preso in carico dal ristoratore.
-          </p>
+        <div class="card">
+          <div class="card-body">
+            <h1>Pagamento Confermato</h1>
+            <p>
+              Grazie per il tuo ordine! Il pagamento è stato confermato e
+              l'ordine è stato preso in carico dal ristoratore.
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -26,16 +28,32 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
-.confirmation-message {
+
+.card {
+  background-color: rgba(255, 255, 255, 0.359);
+  border: none;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.card-body {
   text-align: center;
 }
-.confirmation-message h1 {
+
+.card-body h1 {
   font-size: 2rem;
-  color: #bc3431;
+  font-family: 'Paytone One', sans-serif;
+  color: white;
+  margin-bottom: 20px;
 }
-.confirmation-message p {
+
+.card-body p {
   font-size: 1.2rem;
+  line-height: 1.5;
+  font-family: 'Open Sans', 'sans serif';
 }
 </style>
