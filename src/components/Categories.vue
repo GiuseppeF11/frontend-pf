@@ -176,15 +176,33 @@ export default {
           :key="restaurant.id"
           class="category-card col-lg-3 col-md-4 col-sm-3 col-sm-6 col-6 text-center p-4"
         >
+                  
           <a
             :href="`/restaurant/${restaurant.id}`"
             class="text-decoration-none"
           >
             <div class="card-content d-flex align-items-center flex-column">
-              <img
-                :src="restaurant.img.startsWith('http') ? restaurant.img : 'http://127.0.0.1:8000/storage/' + restaurant.img" :alt="restaurant.name"
-                class="category-image"
-              />
+              <div class="card-image d-flex flex-column justify-content-between" :style="{ backgroundImage: 'url(' + (restaurant.img.startsWith('http') ? restaurant.img : 'http://127.0.0.1:8000/storage/' + restaurant.img) + ')' }">
+                <!-- Aggiunta dei badge per le categorie -->
+                <div class="overlay">
+                  
+                </div>
+                <div class="row px-3 py-2 ">
+                  <div class="row d-flex">
+                    <div
+                        v-for="category in restaurant.categories"
+                        :key="category.id"
+                        class="badge-category col-auto  mr-1"
+                      >
+                        {{ category.name }}
+                    </div>
+                  </div>
+                </div>
+                <div class="restaurant-address text-light text-start px-3  h-25 fw-bold">
+                  <i class="fa-solid fa-location-dot"></i> {{ restaurant.address }}
+                </div>
+              </div>
+
               <div class="mt-n3">
                 <h5
                   class="text-center card-title category-name category-pill-2"
@@ -251,13 +269,17 @@ export default {
   font-family: 'Open Sans', 'sans-serif';
 }
 
-.category-image {
-  width: 170px;
-  height: 170px;
-  border-radius: 25%;
-  margin: 0 auto 10px;
+.card-image {
+  width: 100%;
+  height: 200px;
+  border-radius: 10%;
+  margin: 0 auto 20px;
   object-fit: cover;
   box-shadow: 0px 0px 20px black;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
 }
 
 .card-body {
@@ -394,5 +416,30 @@ export default {
 
 .button-style-3 a {
   text-decoration: none;
+}
+
+.badge-category {
+  background-color: rgba(246, 144, 30, 1);
+  font-size: 13px;
+  border-radius: 10px;
+  color: white;
+  padding: 0 10px;
+  margin: 3px 0;
+  font-weight: bold;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(0,0,0);
+  background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.253) 50%, rgba(0, 0, 0, 0) 100%);
+}
+
+.restaurant-address {
+  z-index: 1;
+  position: relative;
+  background-color: rgba(246, 144, 30, 1);
 }
 </style>
