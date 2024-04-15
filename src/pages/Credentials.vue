@@ -39,6 +39,7 @@ export default {
                 console.error(err);
                 return;
               }
+              this.confirmPayment(payload.nonce);
             });
           }
         });
@@ -71,7 +72,7 @@ export default {
               console.error(err);
               return;
             }
-            // Invia i dati dell'ordine al backend
+
             await this.sendOrderData(payload.nonce);
           });
         }
@@ -108,6 +109,9 @@ export default {
       } catch (error) {
         console.error("Errore durante l'invio dei dati dell'ordine:", error);
       }
+    },
+    confirmPayment(paymentNonce) {
+      this.$router.push({ name: 'ConfirmedPayment' });
     },
   },
 };
