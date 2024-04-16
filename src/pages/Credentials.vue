@@ -131,6 +131,7 @@ export default {
               class="form-control"
               id="name"
               required
+              placeholder="Es. Mario Rossi"
             />
           </div>
           <div class="mb-3">
@@ -143,6 +144,7 @@ export default {
               class="form-control"
               id="email"
               required
+              placeholder="Es. email@email.com"
             />
           </div>
           <div class="mb-3">
@@ -154,6 +156,7 @@ export default {
               type="text"
               class="form-control"
               id="address"
+              placeholder="Es. Via Garibaldi 22 - Roma"
               required
             />
           </div>
@@ -166,6 +169,7 @@ export default {
               type="tel"
               class="form-control"
               id="phone"
+              placeholder="Es. 393333333333"
               required
             />
           </div>
