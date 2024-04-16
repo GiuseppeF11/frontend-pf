@@ -456,11 +456,11 @@ export default {
   color: black;
   z-index: 1;
   position: relative;
+  width: 100%;
   background-color: white;
   height: 150px;
   padding: 10px 20px;
   font-size: 15px;
-  overflow: auto;
   border-radius: 0% 0% 20px 20px;
   display: flex;
   flex-direction: column;
