@@ -68,6 +68,7 @@ export default {
   bottom: 20px;
   right: 20px;
   display: flex;
+  z-index: 2;
 }
 
 
