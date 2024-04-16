@@ -32,9 +32,9 @@ export default {
     @use '../../src/assets/scss/font.scss' as *;
 
     .my-jumbotron {
-        height: 700px;
+        height: 900px;
         background-image: url('/img/jumbotron.png');
-        background-size: 100% auto;
+        background-size: 100%;
         background-position: center;
         background-repeat: no-repeat;
 

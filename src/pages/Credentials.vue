@@ -123,13 +123,13 @@ export default {
       <div class="col-md-6">
         <form @submit.prevent="sendOrder" method="POST">
           <div class="mb-3">
-            <label for="name" class="form-label form-text"
+            <label for="name" class="form-label form-text text-white"
               >Nome <span>*</span></label
             >
             <input
               v-model="order.name"
               type="text"
-              class="form-control"
+              class="form-control text-white"
               id="name"
               required
               placeholder="Es. Mario Rossi"
@@ -261,9 +261,13 @@ export default {
   margin-bottom: 50px;
 }
 .button:hover {
-  color: rgba(246, 144, 30, 1);
+  color: rgb(255, 255, 255);
   background-color: transparent;
-  border: 1px solid rgba(246, 144, 30, 1);
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.form-text {
+  color: white;
 }
 .empty-cart-message {
   color: #bc3431;
