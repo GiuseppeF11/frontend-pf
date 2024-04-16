@@ -12,6 +12,7 @@ export default {
         phoneNum: '',
       },
       instance: null,
+      error: null,
     };
   },
   mounted() {
@@ -106,12 +107,10 @@ export default {
           }
         );
         console.log("Dati dell'ordine inviati con successo:", response.data);
+        this.$router.push({ name: 'ConfirmedPayment' });
       } catch (error) {
         console.error("Errore durante l'invio dei dati dell'ordine:", error);
       }
-    },
-    confirmPayment(paymentNonce) {
-      this.$router.push({ name: 'ConfirmedPayment' });
     },
   },
 };
@@ -123,7 +122,9 @@ export default {
       <div class="col-md-6">
         <form @submit.prevent="sendOrder" method="POST">
           <div class="mb-3">
-            <label for="name" class="form-label form-text">Nome</label>
+            <label for="name" class="form-label form-text"
+              >Nome <span>*</span></label
+            >
             <input
               v-model="order.name"
               type="text"
@@ -133,7 +134,9 @@ export default {
             />
           </div>
           <div class="mb-3">
-            <label for="email" class="form-label form-text">Email</label>
+            <label for="email" class="form-label form-text"
+              >Email <span>*</span></label
+            >
             <input
               v-model="order.email"
               type="email"
@@ -143,7 +146,9 @@ export default {
             />
           </div>
           <div class="mb-3">
-            <label for="address" class="form-label form-text">Indirizzo</label>
+            <label for="address" class="form-label form-text"
+              >Indirizzo <span>*</span></label
+            >
             <input
               v-model="order.address"
               type="text"
@@ -154,7 +159,7 @@ export default {
           </div>
           <div class="mb-3">
             <label for="phone" class="form-label form-text"
-              >Numero di telefono</label
+              >Numero di telefono <span>*</span></label
             >
             <input
               v-model="order.phoneNum"
