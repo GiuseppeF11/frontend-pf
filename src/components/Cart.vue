@@ -65,6 +65,9 @@ export default {
         <div class="item" v-for="cartItem in this.getCart" :key="cartItem.id">
           <CartItem :cartItem="cartItem" />
         </div>
+        <p v-if="totalPrice <= 0" class="empty-cart-message">
+          Il carrello è vuoto!
+        </p>
       </div>
       <hr />
       <h4 class="total">Totale: € {{ totalPrice }}</h4>
@@ -74,6 +77,7 @@ export default {
           class="checkout-button mb-3"
           :to="{ name: 'credentials' }"
           @click="checkoutClicked"
+          :disabled="totalPrice <= 0"
         >
           Check Out <font-awesome-icon icon="fa-solid fa-arrow-right pl-2" />
         </router-link>
@@ -172,5 +176,10 @@ button:active {
 
 .button-style-3 a {
   text-decoration: none;
+}
+.empty-cart-message {
+  font-family: 'Open Sans', 'sans serif';
+  font-weight: 600;
+  font-size: 1.5rem;
 }
 </style>
