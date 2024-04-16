@@ -111,15 +111,12 @@ export default {
 	width: 400px;
 	cursor: pointer;
 	transition: 0.2s;
-	&:hover {
-	transform: scale(1.09);
-	}
 }
 
 .food-image {
 	width: 250px;
 	height: 250px;
-	border-radius: 25%;
+	border-radius: 20px;
 	margin: 0 auto 10px;
 	object-fit: cover;
 }
