@@ -13,6 +13,7 @@ export default {
       },
       instance: null,
       error: null,
+      showEmptyCartMessage: false,
     };
   },
   mounted() {
@@ -176,7 +177,12 @@ export default {
 
           <div id="dropin-container"></div>
           <div id="dropin-container"></div>
-          <button id="submit-button" class="button form-text">
+          <button
+            id="submit-button"
+            class="button form-text"
+            :disabled="totalPrice <= 0"
+            @click="handlePayment"
+          >
             Procedi al pagamento
           </button>
         </form>
@@ -258,5 +264,9 @@ export default {
   color: rgba(246, 144, 30, 1);
   background-color: transparent;
   border: 1px solid rgba(246, 144, 30, 1);
+}
+.empty-cart-message {
+  color: #bc3431;
+  font-size: 2rem;
 }
 </style>

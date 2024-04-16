@@ -46,6 +46,9 @@ const router = createRouter({
       path: '/credentials',
       name: 'credentials',
       component: Credentials,
+      meta: {
+        requiresCart: true,
+      },
     },
     {
       path: '/payment',

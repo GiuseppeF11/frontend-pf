@@ -25,6 +25,14 @@ library.add(
   faArrowRight
 );
 
+router.beforeEach((to, from, next) => {
+  if (!to.meta.requiresCart || store.getters.getCart.length) {
+    next();
+  } else {
+    next('/');
+  }
+});
+
 createApp(App)
   .use(router)
   .use(store)
