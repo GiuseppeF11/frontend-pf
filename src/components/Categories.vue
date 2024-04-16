@@ -198,7 +198,6 @@ export default {
                 </div>
                 <!-- Aggiunta dei badge per le categorie -->
                 
-                
                 <div class="restaurant-details text-start fw-bold">
                   <h4 class="restaurant-name">{{ restaurant.name }}</h4>
                   <div class="restaurant-address">
