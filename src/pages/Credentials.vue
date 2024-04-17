@@ -136,7 +136,7 @@ export default {
             />
           </div>
           <div class="mb-3">
-            <label for="email" class="form-label form-text"
+            <label for="email" class="form-label form-text text-white"
               >Email <span>*</span></label
             >
             <input
@@ -149,7 +149,7 @@ export default {
             />
           </div>
           <div class="mb-3">
-            <label for="address" class="form-label form-text"
+            <label for="address" class="form-label form-text text-white"
               >Indirizzo <span>*</span></label
             >
             <input
@@ -162,7 +162,7 @@ export default {
             />
           </div>
           <div class="mb-3">
-            <label for="phone" class="form-label form-text">
+            <label for="phone" class="form-label form-text text-white">
               Numero di telefono <span>*</span>
             </label>
             <div class="d-flex">
