@@ -1,7 +1,7 @@
 <template>
-	<div class="container">
+	<div class="container pb-4">
 		<div class="mb-4 row align-items-center justify-content-center">
-			<div class="col-lg-6 col-md-10 text-center text-lg-start">
+			<div class="col-lg-6 col-md-10 text-center text-lg-start pe-lg-4">
 				<h2 class="title pb-2">
 				Diventa un ristoratore su Fastbites
 				</h2>

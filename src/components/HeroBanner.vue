@@ -32,6 +32,7 @@ export default {
     @use '../../src/assets/scss/font.scss' as *;
 
     .my-jumbotron {
+        overflow-y: auto;
         height: 900px;
         background-image: url('/img/jumbotron.png');
         background-size: 100%;
@@ -47,21 +48,21 @@ export default {
 
         .subtitle {
             font-family: 'Open Sans', sans-serif;
-            text-shadow: 10px 5px 4px black;
+            // text-shadow: 10px 5px 4px black;
             color: white;
             font-size: 1.5rem;
         }
     }
 
-    @media (max-width: 767px) {
+    @media (max-width: 1200px) {
         .my-jumbotron {
             background-image: url('/img/jumbotron-mobile.png'); 
-            height: 600px; 
+            height: 700px; 
 		}
     }
 
 	.button-style-3 {
-        box-shadow: 0px 0px 5px black;
+        // box-shadow: 0px 0px 5px black;
         display: inline-block;
         text-decoration: none;
         color: rgb(0, 0, 0);

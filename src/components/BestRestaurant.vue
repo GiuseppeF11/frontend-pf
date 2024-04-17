@@ -1,5 +1,5 @@
 <template>
-    <main>
+    <!-- <main>
         <div class="container pt-5 d-flex mb-5">
             <div class="best-restaurant">
                 <h2 class="title pb-2 text-center">
@@ -13,10 +13,9 @@
             </div>
 
             <div>
-                <!-- DA INSERIRE BEST RESTAURANT IN BASE AI GRAPHS -->
             </div>
         </div>
-    </main>
+    </main> -->
 </template>
   
   <style lang="scss" scoped>

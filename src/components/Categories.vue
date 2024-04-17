@@ -113,11 +113,11 @@ export default {
 <template>
   <main id="categories-section">
     <div class="container">
-      <div class="row text-center mx-lg-5">
-        <div class="col-lg-12">
+      <div class="row text-center mx-5 pb-4">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <!-- <h1 class="title pb-3">Categorie</h1> -->
           <h2 class="secondary-title ">Trova i tuoi ristoranti preferiti!</h2>
-          <div class="row justify-content-center mb-4">
+          <div class="row g-0 justify-content-center mb-4">
             <div class="col-md-6">
               <div class="input-group my-1">
                 <input
@@ -133,12 +133,12 @@ export default {
       </div>
 
       <div
-        class="row g-0 justify-content-center align-items-center mx-lg-5 pb-2"
+        class="row g-0 mx-5 mx-xl-0 mx-lg-0 pb-2"
       >
         <div
           v-for="category in categories"
           :key="category.id"
-          class="col-lg-3 col-md-5 col-sm-6 col-6 my-2 d-flex justify-content-center"
+          class="col-lg-3 col-md-6 col-sm-6 col-6 my-2 d-flex justify-content-center"
         >
           <div @click="toggleCategory(category.id)">
             <h5
@@ -171,7 +171,7 @@ export default {
         <div
           v-for="restaurant in visibleRestaurants"
           :key="restaurant.id"
-          class="category-card col-xl-3  col-lg-4 col-md-5 col-sm-7 col-8 text-center p-4"
+          class="category-card col-xl-3 col-lg-4 col-md-5 col-sm-12 col-12 text-center p-4"
         >
         <a :href="`/restaurant/${restaurant.id}`" class="buy-button category-pill-2 px-4 w-auto fw-bold" action="">Acquista</a>
                   
