@@ -1,27 +1,29 @@
 <template>
-  <main class="my-2">
+  <div class="container">
+    <main class="my-2">
     <div class="row text-center">
-      <div class="col-12 col-md m-4">
+      <div class="col-12 col-md">
         <i class="fa-solid fa-burger font"> </i>
         <h5 class="title">Facile da ordinare</h5>
-        <p class="subtitle m-3">Pochi passaggi per ordinare il cibo da casa.</p>
+        <p class="subtitle">Pochi passaggi per ordinare il cibo da casa.</p>
       </div>
 
-      <div class="col-12 col-md m-3">
+      <div class="col-12 col-md">
         <i class="fa-solid fa-truck-fast font"> </i>
         <h5 class="title">Consegna veloce</h5>
-        <p class="subtitle m-4">Consegna sempre puntuale ancora più veloce.</p>
+        <p class="subtitle">Consegna sempre puntuale ancora più veloce.</p>
       </div>
 
-      <div class="col-12 col-md m-3">
+      <div class="col-12 col-md">
         <i class="fa-solid fa-seedling font"> </i> 
         <h5 class="title">Ottima qualità</h5>
-        <p class="subtitle m-4">
+        <p class="subtitle">
           Oltre che alla velocità la nostra priorità è la qualità!
         </p>
       </div>
     </div>
   </main>
+  </div>
 </template>
 
 <style lang="scss" scoped>

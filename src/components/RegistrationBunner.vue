@@ -57,7 +57,7 @@
 	  transition: background-color 0.3s ease;
 	  border: none;
 	  background-color: rgba(246, 144, 30, 1);
-	  box-shadow: 0px 0px 5px white;
+	//   box-shadow: 0px 0px 5px white;
   
 	  &:hover {
 		background-color: #ffffff;

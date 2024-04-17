@@ -138,7 +138,7 @@ export default {
         <div
           v-for="category in categories"
           :key="category.id"
-          class="col-lg-3 col-md-6 col-sm-6 col-6 my-2 d-flex justify-content-center"
+          class="col-lg-3 col-md-6 col-sm-12 col-12 my-2 d-flex justify-content-center"
         >
           <div @click="toggleCategory(category.id)">
             <h5
@@ -208,17 +208,18 @@ export default {
           </a>
         </div>
 
-        <div v-if="ShowLoadMoreLink" class="text-center mt-4">
+        <div class="d-flex justify-content-center align-items center pt-5">
+          <div v-if="ShowLoadMoreLink" class="text-center">
           <a
             @click.prevent="loadMoreRestaurants"
             href="#"
-            class="button-style-3 mt-4"
+            class="button-style-3"
           >
             Mostra di più
           </a>
         </div>
 
-        <div v-if="ShowSeeLessLink" class="text-center mt-4">
+        <div v-if="ShowSeeLessLink" class="text-center">
           <a
             @click.prevent="seeLessRestaurants"
             href="#"
@@ -226,6 +227,7 @@ export default {
           >
             Mostra meno
           </a>
+        </div>
         </div>
       </div>
     </div>
@@ -407,7 +409,7 @@ export default {
 }
 
 .button-style-3 {
-  box-shadow: 0px 0px 5px white;
+  // box-shadow: 0px 0px 5px white;
   display: inline-block;
   text-decoration: none;
   color: rgb(255, 255, 255);

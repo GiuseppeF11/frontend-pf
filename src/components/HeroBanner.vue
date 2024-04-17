@@ -15,8 +15,8 @@ export default {
 
 <template>
     <main>
-        <div class="my-jumbotron d-flex align-items-center mb-2">
-            <div class="col mx-sm-5 text-center"> <!-- Added text-center class -->
+        <div class="my-jumbotron d-flex justify-content-center align-items-center mb-2">
+            <div class="text-center"> 
                 <h1 class="title">Benvenuto in fastbites!</h1>
                 <p class="subtitle fs-5">
                     Hai fame? Festeggia ogni boccone di felicità consegnato direttamente a casa tua
@@ -32,7 +32,6 @@ export default {
     @use '../../src/assets/scss/font.scss' as *;
 
     .my-jumbotron {
-        overflow-y: auto;
         height: 900px;
         background-image: url('/img/jumbotron.png');
         background-size: 100%;
@@ -57,7 +56,7 @@ export default {
     @media (max-width: 1200px) {
         .my-jumbotron {
             background-image: url('/img/jumbotron-mobile.png'); 
-            height: 700px; 
+            height: 900px; 
 		}
     }
 
