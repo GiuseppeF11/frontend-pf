@@ -162,18 +162,28 @@ export default {
             />
           </div>
           <div class="mb-3">
-            <label for="phone" class="form-label form-text"
-              >Numero di telefono <span>*</span></label
-            >
+            <label for="phone" class="form-label form-text">
+              Numero di telefono <span>*</span>
+            </label>
+            <div class="d-flex">
+              <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">+39</span>
+            </div>
             <input
               v-model="order.phoneNum"
               type="tel"
-              class="form-control"
+              class="form-control rounded-0 rounded-end-2  "
               id="phone"
-              placeholder="Es. 393333333333"
+              placeholder="Es. 3221334411"
+              pattern="[0-9]{10}"
+              minlength="10"
+              maxlength="10"
+              title="Il numero di telefono deve contenere solo cifre e deve essere lungo 10 caratteri."
               required
             />
+            </div>
           </div>
+
 
           <div id="dropin-container"></div>
           <div id="dropin-container"></div>
@@ -273,4 +283,9 @@ export default {
   color: #bc3431;
   font-size: 2rem;
 }
+
+.input-group-text {
+  border-radius: 5px 0 0 5px;
+}
+
 </style>
