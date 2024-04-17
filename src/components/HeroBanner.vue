@@ -34,7 +34,7 @@ export default {
     .my-jumbotron {
         height: 900px;
         background-image: url('/img/jumbotron.png');
-        background-size: 100%;
+        background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
@@ -56,6 +56,7 @@ export default {
     @media (max-width: 1200px) {
         .my-jumbotron {
             background-image: url('/img/jumbotron-mobile.png'); 
+            background-size: cover;
             height: 900px; 
 		}
     }
