@@ -85,7 +85,7 @@ export default {
           :alt="food.name"
         />
         <div class="card-body">
-          <h4 class="card-title food-name my-3">{{ food.name }}</h4>
+          <h4 class="card-title food-name my-3">{{ food.name.toUpperCase() }}</h4>
           <h6 class="text-dark my-3">{{ food.price }} €</h6>
         </div>
       </a>
@@ -127,6 +127,10 @@ export default {
   &:hover {
     transform: scale(1.09);
   }
+}
+
+.card-title {
+  min-height: 50px;
 }
 
 .food-image {
