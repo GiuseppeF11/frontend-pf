@@ -173,7 +173,7 @@ export default {
           :key="restaurant.id"
           class="category-card col-xl-3 col-lg-4 col-md-5 col-sm-12 col-12 text-center p-4"
         >
-        <a :href="`/restaurant/${restaurant.id}`" class="buy-button category-pill-2 px-4 w-auto fw-bold" action="">Acquista</a>
+        <a :href="`/restaurant/${restaurant.id}`" class="buy-button category-pill-2 px-4 w-auto" action="">Acquista ora</a>
                   
           <a
             :href="`/restaurant/${restaurant.id}`"
@@ -367,7 +367,7 @@ export default {
   border: none;
   display: none;
   border-radius: 10px;
-  top: 45%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 9999;
