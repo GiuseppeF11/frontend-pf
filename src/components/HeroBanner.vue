@@ -66,7 +66,7 @@ export default {
     @media (max-width: 1200px) {
         .my-jumbotron {
             background-image: url('/img/jumbotron-mobile.png'); 
-            background-size: cover;
+            background-size: 100%;
             height: 900px; 
 		}
     }
