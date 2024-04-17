@@ -276,9 +276,6 @@ export default {
   border: 1px solid rgb(255, 255, 255);
 }
 
-.form-text {
-  color: white;
-}
 .empty-cart-message {
   color: #bc3431;
   font-size: 2rem;
