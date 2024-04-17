@@ -28,7 +28,7 @@ export default {
 
 <template>
 	<header>
-	  <nav class="navbar mt-5 mb-3">
+	  <nav class="navba-lg mt-5 mb-3 flex-nowrap">
 		<div class="container d-flex justify-content-between align-items-center">
 		  <div class="logo">
 			<router-link class="navbar-brand" to="/">
@@ -93,10 +93,16 @@ export default {
 <style lang="scss" scoped>
 
 .logo {
-  width: 250px;
+  width: 200px;
 
   img {
     width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .logo img {
+    width: 146.82px;
   }
 }
 
@@ -105,7 +111,7 @@ export default {
 }
 
 .button-style-3 {
-  box-shadow: 0px 0px 5px black;
+//   box-shadow: 0px 0px 5px black;
   display: inline-block;
   text-decoration: none;
   color: rgb(0, 0, 0);

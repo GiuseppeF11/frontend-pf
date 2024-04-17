@@ -8,7 +8,7 @@ export default {
 </script>
 
 <template>
-    <footer class="py-1">
+    <footer class="py-1 mt-5">
         <div class="container d-flex align-items-center py-5">
             <div class="logo-container">
                 <img class="logo" src="/public/img/logo.png" alt="logo">
