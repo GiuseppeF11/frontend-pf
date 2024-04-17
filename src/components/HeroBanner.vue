@@ -16,12 +16,14 @@ export default {
 <template>
     <main>
         <div class="my-jumbotron d-flex justify-content-center align-items-center mb-2">
-            <div class="text-center"> 
-                <h1 class="title">Benvenuto in fastbites!</h1>
-                <p class="subtitle fs-5">
-                    Hai fame? Festeggia ogni boccone di felicità consegnato direttamente a casa tua
-                </p>
-                <a class="button-style-3" href="#" @click="scrollToCategories">Ordina ora</a>
+            <div class="jumbotron-text-container">
+                <div class="text-center"> 
+                    <h1 class="title">Benvenuto in fastbites!</h1>
+                    <p class="subtitle fs-5">
+                        Hai fame? Festeggia ogni boccone di felicità consegnato direttamente a casa tua
+                    </p>
+                    <a class="button-style-3" href="#" @click="scrollToCategories">Ordina ora</a>
+                </div>
             </div>
         </div>
     </main>
@@ -32,9 +34,10 @@ export default {
     @use '../../src/assets/scss/font.scss' as *;
 
     .my-jumbotron {
+        position: relative;
         height: 900px;
         background-image: url('/img/jumbotron.png');
-        background-size: contain;
+        background-size: 100%;
         background-position: center;
         background-repeat: no-repeat;
 
@@ -52,6 +55,13 @@ export default {
             font-size: 1.5rem;
         }
     }
+
+    .jumbotron-text-container {
+        position: absolute;
+        top: 290px;
+    }
+
+
 
     @media (max-width: 1200px) {
         .my-jumbotron {

@@ -55,7 +55,7 @@ export default {
 			</button>
 	
 			<!-- Offcanvas menu -->
-			<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+			<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel" style="width: 100%">
 			  <div class="offcanvas-header m-2">
 				<button type="button" class="btn-close button-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 			  </div>
