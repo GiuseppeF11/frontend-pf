@@ -129,7 +129,7 @@ export default {
             <input
               v-model="order.name"
               type="text"
-              class="form-control text-white"
+              class="form-control"
               id="name"
               required
               placeholder="Es. Mario Rossi"
